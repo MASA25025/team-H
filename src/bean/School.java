@@ -5,13 +5,13 @@ import java.io.Serializable;
 
 public class School implements Serializable {
 	// 学校コード
-	private char cd;
+	private String cd;
 	// 学校名
 	private String name;
-	public char getCd() {
+	public String getCd() {
 		return cd;
 	}
-	public void setCd(char cd) {
+	public void setCd(String cd) {
 		this.cd = cd;
 	}
 	public String getName() {
@@ -20,6 +20,5 @@ public class School implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 }

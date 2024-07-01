@@ -10,7 +10,7 @@ public class Student implements Serializable {
 	//入学年度
 	private int ent_year;
 	//クラス番号
-	private char class_num;
+	private String class_num;
 	//在学中フラグ
 	private boolean is_attend;
 	//学校コード
@@ -33,10 +33,10 @@ public class Student implements Serializable {
 	public void setEnt_year(int ent_year) {
 		this.ent_year = ent_year;
 	}
-	public char getClass_num() {
+	public String getClass_num() {
 		return class_num;
 	}
-	public void setClass_num(char class_num) {
+	public void setClass_num(String class_num) {
 		this.class_num = class_num;
 	}
 	public boolean isIs_attend() {
@@ -51,6 +51,5 @@ public class Student implements Serializable {
 	public void setSchool_cd(char school_cd) {
 		this.school_cd = school_cd;
 	}
-
 
 }
