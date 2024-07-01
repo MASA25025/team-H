@@ -14,7 +14,7 @@ public class Student implements Serializable {
 	//在学中フラグ
 	private boolean is_attend;
 	//学校コード
-	private char school_cd;
+	private String school_cd;
 	public String getNo() {
 		return no;
 	}
@@ -45,11 +45,11 @@ public class Student implements Serializable {
 	public void setIs_attend(boolean is_attend) {
 		this.is_attend = is_attend;
 	}
-	public char getSchool_cd() {
+	public String getSchool_cd() {
 		return school_cd;
 	}
-	public void setSchool_cd(char school_cd) {
+	public void setSchool_cd(String school_cd) {
 		this.school_cd = school_cd;
 	}
-
+	
 }
