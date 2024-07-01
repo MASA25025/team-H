@@ -1,8 +1,8 @@
 package tool;
 
-public class testtool {
+public class EncodingFilter {
 
-	public testtool() {
+	public EncodingFilter() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
