@@ -14,7 +14,7 @@ public class DAO {
 		if(ds == null){
 
 //		データベースに接続
-//			aaa
+//			aaaa
 		InitialContext ic=new InitialContext();
 		ds =(DataSource)ic.lookup(
 				"java:/comp/env/jdbc/Javasd");
