@@ -7,6 +7,7 @@
 
 	<c:param name="content">
 		<h2>ログアウト</h2>
-			<p>ログアウトしました。</p>
+		<p>ログアウトしました。</p>
+		<a href=".">ログイン</a>
 	</c:param>
 </c:import>
