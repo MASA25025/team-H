@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Teacher;
-import dao.TeacherDAO;
+import dao.TeacherDao;
 
 public class LoginExecuteAction {
 	public String execute(
@@ -18,7 +18,7 @@ public class LoginExecuteAction {
 	        String password=request.getParameter("password");
 
 //	        DAO作成時に記入
-	        TeacherDAO dao=new TeacherDAO();
+	        TeacherDao dao=new TeacherDao();
 	        Teacher teacher=dao.login(login, password);
 
 	        if (teacher!=null) {
