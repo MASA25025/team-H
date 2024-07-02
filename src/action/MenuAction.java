@@ -5,11 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class LoginAction extends Action {
+public class MenuAction extends Action {
 	public String execute(
 			HttpServletRequest request,HttpServletResponse response
 	) throws Exception{
 
-		return "login.jsp";
+		return "menu.jsp";
 	}
 }
