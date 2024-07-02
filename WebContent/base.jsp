@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>${ param.title }</title>
+</head>
+
 <style>
 	#container{
 		width: 100%;
@@ -24,7 +26,7 @@
 		padding-left: 2rem;
 	}
 </style>
-</head>
+
 <body>
 
 	<div id="container">
