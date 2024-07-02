@@ -13,8 +13,8 @@ public class LogoutAction extends Action {
 
 		HttpSession session=request.getSession();
 
-		if (session.getAttribute("customer")!=null) {
-			session.removeAttribute("customer");
+		if (session.getAttribute("teacher")!=null) {
+			session.removeAttribute("teacher");
 			return "logout.jsp";
 		}
 
