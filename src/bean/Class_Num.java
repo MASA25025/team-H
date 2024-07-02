@@ -2,7 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class Class_num implements Serializable {
+public class Class_Num implements Serializable {
 	// 学校コード
 	private String school_cd;
 	// クラス番号
