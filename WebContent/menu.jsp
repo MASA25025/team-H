@@ -16,7 +16,6 @@
   		box-sizing: border-box;
 		width: 15%;
 		padding-left: 1rem;
-		border-right: solid 1px black;
 	}
 	#content{
   		box-sizing: border-box;
@@ -34,7 +33,7 @@
 			<ul>
 				<li><a href="">メニュー</a></li>
 				<li><a href="">学生管理</a></li>
-				<li><a href="">成績管理</a>
+				<li>成績管理
 				<ul>
 					<li><a href="">成績登録</a></li>
 					<li><a href="">成績参照</a></li>
