@@ -58,4 +58,6 @@
 		<div id="content">${ param.content }</div>
 	</div>
 </body>
+
+<footer style="text-align: center; background-color: #EEEEEE";>@2023TIC<br>大原学園</footer>
 </html>
