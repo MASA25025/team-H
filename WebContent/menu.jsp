@@ -30,14 +30,19 @@
 
 	<div id="container">
 		<div id="sidebar">
-			<h2>メニュー</h2>
-			<h3>学生管理</h3>
+		<nav>
 			<ul>
-				<li><a href="all">学生一覧</a></li>
-				<li><a href="insert">学生追加</a></li>
-				<li><a href="update-select">学生更新</a></li>
-				<li><a href="delete">学生削除</a></li>
+				<li><a href="">メニュー</a></li>
+				<li><a href="">学生管理</a></li>
+				<li><a href="">成績管理</a>
+				<ul>
+					<li><a href="">成績登録</a></li>
+					<li><a href="">成績参照</a></li>
+				</ul>
+				</li>
+				<li><a href="">科目管理</a></li>
 			</ul>
+		</nav>
 		</div>
 		<div id="content">${ param.content }</div>
 	</div>
