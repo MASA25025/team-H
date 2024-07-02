@@ -46,6 +46,5 @@
 		</div>
 		<div id="content">${ param.content }</div>
 	</div>
-
 </body>
 </html>
