@@ -1,8 +1,8 @@
 package dao;
 
-public class ClassNumDao {
+public class TestDAO {
 
-	public ClassNumDao() {
+	public TestDAO() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
