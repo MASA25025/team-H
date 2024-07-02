@@ -2,12 +2,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>${ param.title }</title>
-</head>
+
 
 <style>
+	#header{
+		background-color: #CCFFFF;
+    	padding: 8px;
+    	text-align: center;
+	}
 	#container{
 		width: 100%;
 		height: 600px;
@@ -18,6 +20,7 @@
   		box-sizing: border-box;
 		width: 15%;
 		padding-left: 1rem;
+		border-right: solid 1px black;
 	}
 	#content{
   		box-sizing: border-box;
@@ -26,9 +29,16 @@
 		padding-left: 2rem;
 	}
 </style>
+<head>
+	<title>${ param.title }</title>
+	<meta charset="UTF-8">
+</head>
+
 
 <body>
-
+	<div id="header">
+	<h1     style="font-size: 24px, color: #333;">得点管理システム</h1>
+	</div>
 	<div id="container">
 		<div id="sidebar">
 		<nav>
