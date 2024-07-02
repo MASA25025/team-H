@@ -1,8 +1,8 @@
-package tool;
+package dao;
 
-public class testtool {
+public class TestListStudentDAO {
 
-	public testtool() {
+	public TestListStudentDAO() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
