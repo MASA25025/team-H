@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <meta charset="UTF-8">
     <title>得点管理システム - ログイン</title>
     <style>
@@ -24,6 +23,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .login-container h2 {
+            text-align: center;
             margin-bottom: 20px;
         }
         .login-container label {
@@ -37,6 +37,9 @@
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 3px;
+        }
+        .login-container input[type="checkbox"] {
+            margin-right: 5px;
         }
         .login-container input[type="submit"] {
             width: 100%;
@@ -60,22 +63,18 @@
     <div class="login-container">
         <h2>ログイン</h2>
         <form action="login" method="post">
-            <p>
-                <label for="id">ID</label>
-                <input type="text" id="id" name="id" value="admin">
-            </p>
-            <p>
-                <label for="password">パスワード</label>
-                <input type="password" id="password" name="password" value="Password@112023">
-            </p>
-            <p>
-                <label for="chk_d_ps">
-                    <input type="checkbox" name="chk_d_ps" id="chk_d_ps"> パスワードを保存する
-                </label>
-            </p>
-            <p>
-                <input type="submit" value="ログイン">
-            </p>
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id" value="admin">
+
+            <label for="password">パスワード</label>
+            <input type="password" id="password" name="password" value="Password@112023">
+
+            <label for="chk_d_ps">
+                <input type="checkbox" name="chk_d_ps" id="chk_d_ps"> パスワードを保存する
+            </label>
+
+            <input type="submit" value="ログイン">
+
             <p>${errorMessage}</p>
         </form>
     </div>
