@@ -9,38 +9,54 @@
 <div class="menu-header">
 	<h2>成績管理</h2>
 </div>
+		<div id="form_search">
+			<form action="update" method="get">
 
-		<form action="update" method="get">
-		
-		<div class="pepepe">
-		<p>
-		入学年度<br>
-			<select name="student_id">
-			</select>
-		</p>
-		<p>
-		クラス<br>
-			<select name="student_id">
-			</select>
-		</p>
-		<p>
-		科目<br>
-			<select name="student_id">
-			</select>
-		</p>
-		<p>
-		回数<br>
-			<select name="student_id">
-			</select>
-		</p>
+				<div id="form">
+					<a class="form_elm">
+					入学年度<br>
+						<select name="student_id">
+						</select>
+					</a>
+					<a class="form_elm">
+					クラス<br>
+						<select name="student_id">
+						</select>
+					</a>
+					<a class="form_elm">
+					科目<br>
+						<select name="student_id">
+						</select>
+					</a>
+					<a class="form_elm">
+					回数<br>
+						<select name="student_id">
+						</select>
+					</a>
+				</div>
 
-		<input type="submit" value="検索">
+				<div id="input">
+					<input type="submit" value="検索">
+				</div>
+
+			</form>
 		</div>
-		</form>
-		
 		<style>
-		
-		
+			#form_search{
+				display:flex;
+				position: relative;
+				}
+			#form{
+				position: relative;
+				display:flex;
+			}
+			.form_elm{
+				width:  96px;
+			}
+			#input{
+				right:0;
+			}
+
 		</style>
 
 </c:param>
