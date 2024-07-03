@@ -76,7 +76,6 @@
 
 </style>
 
-
 <div id="main-content">
 <div class="menu-header">
 	<h2>メニュー</h2>
