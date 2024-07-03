@@ -1,7 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:import url="/menu.jsp">
+<c:import url="/base.jsp">
 
 	<c:param name="title">得点管理システム - ログアウト</c:param>
 
@@ -10,4 +10,5 @@
 		<p>ログアウトしました。</p>
 		<a href=".">ログイン</a>
 	</c:param>
+
 </c:import>
