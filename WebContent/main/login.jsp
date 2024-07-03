@@ -46,6 +46,7 @@
            border: 1px solid #ccc;
            border-radius: 5px;
        }
+
        button {
            width: 100%;
            padding: 10px;
