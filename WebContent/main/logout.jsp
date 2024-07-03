@@ -1,13 +1,21 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:import url="/menu.jsp">
-
-	<c:param name="title">得点管理システム - ログアウト</c:param>
-
-	<c:param name="content">
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>得点管理システム - ログアウト</title>
+	<style>
+	</style>
+</head>
+<body>
+	<div class="logout-container">
 		<h2>ログアウト</h2>
-		<p>ログアウトしました。</p>
+		<label>
+			<p>ログアウトしました。</p>
+		</label>
 		<a href=".">ログイン</a>
-	</c:param>
-</c:import>
+	</div>
+</body>
+</html>
