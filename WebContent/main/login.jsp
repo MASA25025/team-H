@@ -1,25 +1,21 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html; charset=UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:import url="/base.jsp">
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>得点管理システム - ログイン</title>
-    <style>
+<c:param name="title">得点管理システム</c:param>
+
+<c:param name="content">
+
+<style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
         }
         .login-container {
-            background-color: white;
+            width: 300px;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 5px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .login-container h2 {
@@ -32,51 +28,45 @@
         }
         .login-container input[type="text"],
         .login-container input[type="password"] {
-            width: 100%;
-            padding: 8px;
+            width: 90%;
+            padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
-            border-radius: 3px;
+            border-radius: 5px;
         }
         .login-container input[type="checkbox"] {
-            margin-right: 5px;
+            margin-right: center;
         }
-        .login-container input[type="submit"] {
+        .login-container button {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
-            border: none;
+            background-color: #007BFF;
             color: white;
-            border-radius: 3px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
-        .login-container input[type="submit"]:hover {
+        .login-container button:hover {
             background-color: #0056b3;
-        }
-        .login-container p {
-            margin: 0;
-            color: red;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h2>ログイン</h2>
-        <form action="login" method="post">
+        <form action="loginServlet" method="post">
             <label for="id">ID</label>
             <input type="text" id="id" name="id" value="admin">
 
             <label for="password">パスワード</label>
-            <input type="password" id="password" name="password" value="Password@112023">
+            <input type="password" id="password" name="password" value="******"><br>
 
-            <label for="chk_d_ps">
-                <input type="checkbox" name="chk_d_ps" id="chk_d_ps"> パスワードを保存する
-            </label>
+            <input type="checkbox" id="showPassword">
+            <label for="showPassword">パスワードを表示</label>
 
-            <input type="submit" value="ログイン">
-
-            <p>${errorMessage}</p>
+            <button type="submit">ログイン</button>
         </form>
     </div>
 </body>
-</html>
+</c:param>
+</c:import>
