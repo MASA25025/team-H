@@ -3,12 +3,29 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+	<title>${ param.title }</title>
+	<meta charset="UTF-8">
+</head>
 
 <style>
 	#header{
-		background-color: #CCFFFF;
-    	padding: 8px;
-    	text-align: center;
+		background-color: #D9E5FF;
+    	padding-top: 12px;
+    	padding-bottom: 12px;
+    	padding-right: 48px;
+    	padding-left: 48px;
+		position: relative;
+		display:flex;
+	}
+	#head_li{
+		padding:8px;
+		display: flex;
+		position: absolute;
+	    bottom: 0;
+		right:48px;
+		margin:5px;
+
 	}
 	#container{
 		width: 100%;
@@ -29,15 +46,14 @@
 		padding-left: 2rem;
 	}
 </style>
-<head>
-	<title>${ param.title }</title>
-	<meta charset="UTF-8">
-</head>
-
 
 <body>
 	<div id="header">
-	<h1     style="font-size: 24px, color: #333;">得点管理システム</h1>
+	<h1 style="font-size: 16px, color: #333;">得点管理システム</h1>
+		<div id="head_li">
+			<a style="margin-right:8px;">username${ teacher.login }様</a>
+			<a style="margin-right:8px;" href="LogoutAction">ログアウト</a>
+		</div>
 	</div>
 	<div id="container">
 		<div id="sidebar">
