@@ -13,8 +13,8 @@
 		登録が完了しました
 	</div>
 	<div id="link">
-		<a href="">戻る</a>
-		<a href="">成績参照へ</a>
+		<a href="" class="link">戻る</a>
+		<a href="" class="link" style="left:96px;">成績参照へ</a>
 	</div>
 	<style>
 	#menu-header{
@@ -34,6 +34,17 @@
 	padding:6px;
 	heght:36px;
 	text-align:center;
+	}
+	#link{
+		position: relative;
+		height:144px;
+		padding:12px;
+		display:flex;
+	}
+	.link{
+		position:absolute;
+		bottom:0;
+		padding-right: 48px;
 	}
 </style>
 
