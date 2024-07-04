@@ -50,7 +50,7 @@
             background-color: #0056b3;
         }
     </style>
-</head>
+
 <body>
     <div class="login-container">
         <h2>ログイン</h2>
