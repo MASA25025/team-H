@@ -13,7 +13,7 @@
 	<div class="logout-container">
 		<h2>ログアウト</h2>
 		<label>
-			<p>ログアウトしました。</p>
+			ログアウトしました。
 		</label>
 		<a href=".">ログイン</a>
 	</div>
