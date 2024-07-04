@@ -6,10 +6,10 @@
 
 <c:param name="content">
 
-<div class="menu-header">
-	<h2>成績管理</h2>
-</div>
-		<div id="form_search">
+
+	<h1 id="menu-header">成績管理</h1>
+
+
 			<form action="update" method="get">
 
 				<div id="form">
@@ -23,7 +23,7 @@
 						<select name="student_id">
 						</select>
 					</a>
-					<a class="form_elm">
+					<a id="subject">
 					科目<br>
 						<select name="student_id">
 						</select>
@@ -33,29 +33,49 @@
 						<select name="student_id">
 						</select>
 					</a>
+					<a class="form_elm">
+					<input id="search" type="submit" value="検索">
+					</a>
 				</div>
+				</form>
 
-				<div id="input">
-					<input type="submit" value="検索">
-				</div>
 
-			</form>
-		</div>
+
+
 		<style>
-			#form_search{
-				display:flex;
-				position: relative;
-				}
+			#menu-header{
+				font-size:x-large;
+				border:none 1px #CCCCCC;
+				border-radius:12px;
+				background-color:#EEEEEE;
+				height:36px;
+				padding:10px;
+				Vertical-align: middle
+			}
 			#form{
-				position: relative;
+				border: solid 1px #C0C0C0;
+				border-radius:12px;
 				display:flex;
+				padding:12px
 			}
 			.form_elm{
-				width:  96px;
+				font-size:large;
+				height:48px;
+				width:  136px;
 			}
-			#input{
-				right:0;
+			#subject{
+				height:48px;
+				width:256px;
 			}
+			#search{
+				height:36px;
+				width: 72px;
+				background-color:#555555;
+				color:white;
+				border:none 1px #555555;
+				border-radius:6px;
+			}
+
 
 		</style>
 
