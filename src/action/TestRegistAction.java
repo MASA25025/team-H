@@ -1,11 +1,13 @@
 package action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.Teacher;
-import dao.TeacherDao;
+import bean.Class_Num;
+import dao.ClassNumDao;
 
 public class TestRegistAction {
 	public String execute(
@@ -14,16 +16,13 @@ public class TestRegistAction {
 
 	        HttpSession session=request.getSession();
 
-	        String school_cd = (String) session.getAttribute("school_cd");
+	        String cd = (String) session.getAttribute("cd");
 
 //	        DAO作成時に記入
-	        TeacherDao dao=new TeacherDao();
-	        Teacher teacher=dao.login(school_cd);
+	        ClassNumDao dao=new ClassNumDao();
+	        List<Class_Num> ClassNum=dao.Filter(cd);
 
-	        if (teacher!=null) {
-	            session.setAttribute("teacher", teacher);
-	            return "menu.jsp";
-	        }
+	        request.setAttribute("class_num", ClassNum);
 
 	        return "login.jsp";
 	    }
