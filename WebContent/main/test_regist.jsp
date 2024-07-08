@@ -15,22 +15,22 @@
 				<div id="form">
 					<a class="form_elm">
 					入学年度<br>
-						<select name="student_id">
+						<select name="ent_year">
 						</select>
 					</a>
 					<a class="form_elm">
 					クラス<br>
-						<select name="student_id">
+						<select name="class_num">
 						</select>
 					</a>
 					<a id="subject">
 					科目<br>
-						<select name="student_id">
+						<select name="sbject_cd">
 						</select>
 					</a>
 					<a class="form_elm">
 					回数<br>
-						<select name="student_id">
+						<select name="no">
 						</select>
 					</a>
 					<a class="form_elm">
