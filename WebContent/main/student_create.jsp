@@ -59,13 +59,13 @@
 <input type="text" id="student_number" name="student_number" placeholder="学生番号を入力してください">
 <label for="name">氏名</label>
 <input type="text" id="name" name="name" placeholder="氏名を入力してください">
-<label for="class_num">クラス</label>
-<select id="class_num" name="class_num">
-<option value="101">101</option>
-<option value="102">102</option>
-<option value="103">103</option>
-<option value="104">104</option>
-</select>
+<label>クラス<br>
+			<select name="class_num">
+				<c:forEach var="classnum" items="${ class_num }">
+					<option value="${ classnum.class_num }">${ classnum.class_num }</option>
+				</c:forEach>
+			</select>
+		</label>
 <button type="submit">登録して終了</button>
 </form>
 <a href="menu.jsp">戻る</a>

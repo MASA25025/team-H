@@ -32,5 +32,22 @@ public class ClassNumDao extends DAO{
 
 			return list;
 		}
+		public List<Class_Num> all() throws Exception {
+			List<Class_Num> list = new ArrayList<Class_Num>();
 
+			Connection con = getConnection();
+			PreparedStatement st = con.prepareStatement("select * from class_num");
+			ResultSet rs = st.executeQuery();
+
+			while (rs.next()) {
+				Class_Num s = new Class_Num();
+				s.setClass_num(rs.getString("class_num"));
+				list.add(s);
+			}
+
+			// 学生リストを返却
+			return list;
+		}
 }
+
+
