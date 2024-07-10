@@ -53,7 +53,7 @@
 	</div>
 	</div>
 
-		${count < 0 ? count : "学生情報が登録だれていません" }
+		${count < 0 ? count : "学生情報が登録されていません" }
 
 		<div><c:forEach var="student" items="${ studentlist }">
 			<c:if test="count(student) > 0">count(student)</c:if>

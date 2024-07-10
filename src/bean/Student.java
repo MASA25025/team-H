@@ -1,5 +1,5 @@
 package bean;
-
+import bean.School;
 import java.io.Serializable;
 
 public class Student implements Serializable {
@@ -15,6 +15,7 @@ public class Student implements Serializable {
 	private boolean isAttend;
 	//学校コード
 	private School school ;
+
 	public String getNo() {
 		return no;
 	}
