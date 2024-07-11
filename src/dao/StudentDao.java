@@ -87,43 +87,55 @@ public class StudentDao extends DAO {
 		return list;
 	}
 
+//	学校、入学年度、クラス番号、在学フラグを指定s手学生の一覧を取得するメソッド
+	public List<Student> filter(School school, int entYear, String classNum, Boolean isAttend ) throws Exception {
+		List<Student> list = new ArrayList<>();
 
-//	！！！！！！！！！！！！！！！このfilter、型とか変だから直しといてちょ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-	public List<Student> filter(School school, String entYear, String classNum, String isAttend ) throws Exception {
-		List<Student> studentlist = new ArrayList<Student>();
+		Connection connection = getConnection();
 
-		Connection con = getConnection();
+		PreparedStatement statement = null;
 
-		PreparedStatement st = con.prepareStatement(
-				"select * from student where ent_year like ?");
-		st.setString(1, "%" + entYear + "%");
-		st.setString(2, "%" + classNum + "%");
-		st.setString(3, "%" + isAttend + "%");
+		ResultSet rSet = null;
 
-		ResultSet rs = st.executeQuery();
+		String condition = "and ent_yaer =? and class_num =?";
 
-		while (rs.next()) {
-			// Productクラスをインスタンス化
-			Student p = new Student();
-			School q = new School();
-			// 値をセット
-			p.setEntYear(rs.getInt("id"));
-			p.setNo(rs.getString("name"));
-			p.setName(rs.getString("price"));
-			p.setClassNum(rs.getString("classnum"));
-			p.setAttend(rs.getBoolean("attend"));
-
-			q.setCd(rs.getString("cd"));
-			p.setSchool(q);
-
-			// リストに追加
-			studentlist.add(p);
+		String order = "order by no asc";
+//		SQL文の在学フラッグ条件
+		String conditionIsAttend = "";
+		if(isAttend){
+			conditionIsAttend = "and_is_attend = true";
 		}
 
-		st.close();
-		con.close();
-
-		return studentlist;
+		try{
+			statement = connection.prepareStatement(baseSql + condition + conditionIsAttend + order);
+//			各カラムをバインド
+			statement.setString(1, school.getCd());
+			statement.setInt(2, entYear);
+			statement.setString(3, classNum);
+			rSet = statement.executeQuery();
+			list = postFilter(rSet, school);
+		}catch (Exception e) {
+			// TODO: handle exception
+			throw e;
+		}finally {
+			if (statement !=null){
+				try{
+					statement.close();
+				}catch (SQLException sqle) {
+					// TODO: handle exception
+					throw sqle;
+				}
+			}
+			if (connection != null){
+				try{
+					connection.close();
+				}catch (SQLException sqle) {
+					// TODO: handle exception
+					throw sqle;
+				}
+			}
+		}
+		return list;
 	}
 
 	public List<Student> filter(School school, int entYear, Boolean isAttend ) throws Exception{
@@ -177,7 +189,6 @@ public class StudentDao extends DAO {
 	}
 
 	// 学校、在学フラグを指定して学生の一覧を取得するメソッド
-
 	//＝＝＝＝＝＝＝＝＝＝＝＝＝初期表示時にこのメソッドを表示する＝＝＝＝＝＝＝＝＝＝＝
 	public List<Student> filter(School school, Boolean isAttend ) throws Exception{
 		List<Student> list = new ArrayList<>();
@@ -226,7 +237,8 @@ public class StudentDao extends DAO {
 
 		return list;
 	}
-//	studentインスタンスをデータベースに保存するメソッド
+
+	//	studentインスタンスをデータベースに保存するメソッド
 	public boolean save(Student student) throws Exception{
 			Connection connection = getConnection();
 			PreparedStatement statement = null;
