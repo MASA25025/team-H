@@ -25,7 +25,7 @@
 					</a>
 					<a id="subject">
 					科目<br>
-						<select name="sbject_cd">
+						<select name="subject_name">
 						</select>
 					</a>
 					<a class="form_elm">

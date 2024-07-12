@@ -7,17 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bean.Class_Num;
+import bean.School;
 
 public class ClassNumDao extends DAO{
 
-		public List<Class_Num> Filter(String keyword) throws Exception {
+		public List<Class_Num> Filter(School school) throws Exception {
 			List<Class_Num> list=new ArrayList<>();
 
 			Connection con=getConnection();
 
 			PreparedStatement st=con.prepareStatement(
 				"select * from CLASS_NUM where CLASS_CD like ?");
-			st.setString(1,keyword);
+			st.setSchool(1,school);
 			ResultSet rs=st.executeQuery();
 
 			while (rs.next()) {
