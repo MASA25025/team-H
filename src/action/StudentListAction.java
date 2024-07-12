@@ -38,7 +38,7 @@ public class StudentListAction extends Action {
 		entYearStr = req.getParameter("f1");
 		classNum = req.getParameter("f2");
 		isAttendStr = req.getParameter("f3");
-
+//		ログインユーザーの学校コードをもとにクラス番号の一覧を取得
 		List<String> list = classNumDao.Filter(teacher.getSchool());
 
 		if(entYear != 0 && !classNum.equals("0")){
