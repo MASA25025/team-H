@@ -60,12 +60,12 @@
 <label for="name">氏名</label>
 <input type="text" id="name" name="name" placeholder="氏名を入力してください">
 <label>クラス<br>
-			<select name="class_num">
-				<c:forEach var="classnum" items="${ class_num }">
-					<option value="${ classnum.class_num }">${ classnum.class_num }</option>
-				</c:forEach>
-			</select>
-		</label>
+<select name="class_num">
+<c:forEach var="classnum" items="${ class_num }">
+<option value="${ classnum.class_num }">${ classnum.class_num }</option>
+</c:forEach>
+</select>
+</label>
 <button type="submit">登録して終了</button>
 </form>
 <a href="menu.jsp">戻る</a>
