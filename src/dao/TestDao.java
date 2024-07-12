@@ -1,3 +1,4 @@
+//わからないからここに棄てる
 package dao;
 
 import java.sql.Connection;
@@ -6,24 +7,27 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.Class_Num;
+import bean.Student;
 import bean.Test;
 
 public class TestDao extends DAO{
 
 	public List<Test> filter(int ent_year,String class_num,String subject_name,int sub_cou) throws Exception {
-		List<Test> list=new ArrayList<>();
+		List<Student> list=new ArrayList<>();
 		Connection con=getConnection();
 
 		PreparedStatement st=con.prepareStatement(
-			"select * from CLASS_NUM where CLASS_CD like ?");
-		st.setString(1,keyword);
+			"select ENT_YEAR,CLASS_NUM,NO,NAME from STUDENT where ENT_YEAR,CLASS_NUM like ?,?");
+		st.setInt(1,ent_year);
+		st.setString(1,class_num);
 		ResultSet rs=st.executeQuery();
 
 		while (rs.next()) {
-			Class_Num p=new Class_Num();
-			p.setSchool_cd(rs.getString("school_cd"));
-			p.setClass_num(rs.getString("class_num"));
+			Student p=new Student();
+			p.setEntYear(rs.getInt("ent_year"));
+			p.setClassNum(rs.getString("class_num"));
+			p.setNo(rs.getString("no"));
+			p.setName(rs.getString("name"));
 			list.add(p);
 		}
 
