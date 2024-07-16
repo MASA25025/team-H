@@ -42,13 +42,17 @@ public class TestRegistAction {
 	protected String doPost(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
+				HttpSession session=request.getSession();
+
+				Teacher teacher = (Teacher)session.getAttribute("user");
+
 				int ent_year = Integer.parseInt(request.getParameter("ent_year"));
 				String class_num = request.getParameter("class_num");
-				String subject_name = request.getParameter("subject_name");
-				int sub_cou = Integer.parseInt(request.getParameter("sub_cou"));
+				String subject = request.getParameter("subject_name");
+				int num = Integer.parseInt(request.getParameter("sub_cou"));
 
 				TestDao Testdao=new TestDao();
-				List<Test> Test=Testdao.filter(ent_year,class_num,subject_name,sub_cou);
+				List<Test> Test=Testdao.filter(ent_year,class_num,subject,num,teacher.getSchool());
 
 				request.setAttribute("Test", Test);
 
