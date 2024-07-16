@@ -30,7 +30,7 @@ public class StudentCreateExecuteAction extends Action {
 
         // 入学年の検証
         if (entryYear == null || entryYear.isEmpty()) {
-            errors.add("入学年を選択してください");
+            errors.add("入学年度を選択してください");
         }
 
         // 学生番号の検証
@@ -54,7 +54,7 @@ public class StudentCreateExecuteAction extends Action {
             // 登録処理を実行（例：データベースに学生を保存）
             // ...
             // 成功ページにリダイレクト
-            response.sendRedirect("success.jsp");
+            response.sendRedirect("student_create_done.jsp");
         }
     }
 
