@@ -1,12 +1,14 @@
 package action;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.Class_Num;
+import bean.Teacher;
 import dao.ClassNumDao;
 import tool.Action;
 
@@ -14,12 +16,20 @@ public class StudentCreateAction extends Action{
 	public void execute(HttpServletRequest req,HttpServletResponse resp) throws Exception{
 		HttpSession session = req.getSession();
 
-//        DAO作成時に記入
+		Teacher teacher = (Teacher)session.getAttribute("user");
+		LocalDate todaysDate = LocalDate.now();
+		int year = todaysDate.getYear();
+
         ClassNumDao dao=new ClassNumDao();
-        List<Class_Num> ClassNum=dao.all();
+        List<String> ClassNum=dao.Filter(teacher.getSchool());
 
-        req.setAttribute("class_num", ClassNum);
-
+//		入学年度をInt型にし、プルダウン用にリストをつくる
+		List<Integer> entYearSet = new ArrayList<>();
+//		10年前から1年後までの年をリストに追加
+		for (int i = year - 10; i < year + 1; i++){
+			entYearSet.add(i);
+		}
+		req.setAttribute("class_num", ClassNum);
 		req.getRequestDispatcher("sutudent_create.jsp").forward(req, resp);
 	}
 

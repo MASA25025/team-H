@@ -49,20 +49,19 @@
 
         <body>
             <h2>学生情報登録</h2>
-            <form id="registrationForm" action="RegisterServlet" method="post" onsubmit="return validateForm()">
-                <label for="entry_year">入学年度</label>
-                <select id="entry_year" name="entry_year">
-                    <option value="">選択してください</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                </select>
+            <form id="registrationForm" action="StudentCreateExecuteAction" method="post" onsubmit="return validateForm()">
+                <label class="form-label" for="student-f1-select">入学年度</label>
+        			<select class="form-select" id="student-f1-select" name="ent_year">
+          			<option value="0"></option>
+			          <c:forEach var="year" items="${ent_year_set}">
+			            <%-- 現在のyearと選択されていたf1が一致していた場合selectedを追記 --%>
+			            <option value="${year}" <c:if test="${year==ent_year}">selected</c:if>>${year}</option>
+			          </c:forEach>
+        			</select>
                 <div id="entryYearError" class="error"></div>
 
                 <label for="student_number">学生番号</label>
-                <input type="text" id="student_number" name="student_number" required placeholder="学生番号を入力してください">
+                <input type="text" id="student_number" name="studentNumber" required placeholder="学生番号を入力してください">
                 <div id="studentNumberError" class="error"></div>
 
                 <label for="name">氏名</label>
@@ -70,7 +69,7 @@
                 <div id="nameError" class="error"></div>
 
                 <label for="class_num">クラス</label>
-                <select name="class_num">
+                <select name="classNumber">
                     <c:forEach var="classnum" items="${class_num}">
                         <option value="${classnum.class_num}">${classnum.class_num}</option>
                     </c:forEach>
@@ -79,54 +78,16 @@
             </form>
             <a href="menu.jsp">戻る</a>
 
-            <script>
-                function validateForm() {
-                    let isValid = true;
-
-                    const entryYear = document.getElementById("entry_year").value;
-                    const studentNumber = document.getElementById("student_number").value;
-                    const name = document.getElementById("name").value;
-
-                    document.getElementById("entryYearError").innerText = "";
-                    document.getElementById("studentNumberError").innerText = "";
-                    document.getElementById("nameError").innerText = "";
-
-                    if (entryYear === "") {
-                        document.getElementById("entryYearError").innerText = "入学年度を選択してください";
-                        isValid = false;
-                    }
-
-                    if (studentNumber === "") {
-                        document.getElementById("studentNumberError").innerText = "学生番号を入力してください";
-                        isValid = false;
-                    }
-
-                    if (name === "") {
-                        document.getElementById("nameError").innerText = "氏名を入力してください";
-                        isValid = false;
-                    }
-
-                    // 学生番号の重複チェック
-                    if (isValid) {
-                        const xhr = new XMLHttpRequest();
-                        xhr.open("POST", "CheckDuplicateServlet", false); // 同期リクエストで処理するためfalseを指定
-                        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                        xhr.onreadystatechange = function() {
-                            if (xhr.readyState === 4 && xhr.status === 200) {
-                                const response = xhr.responseText;
-                                if (response.trim() === "duplicate") {
-                                    document.getElementById("studentNumberError").innerText = "この学生番号は既に登録されています";
-                                    isValid = false;
-                                }
-                            }
-                        };
-                        const params = "student_number=" + encodeURIComponent(studentNumber);
-                        xhr.send(params);
-                    }
-
-                    return isValid;
-                }
-            </script>
+            <!-- エラーメッセージを表示 -->
+            <c:if test="${not empty errors}">
+                <div class="error">
+                    <ul>
+                        <c:forEach var="error" items="${errors}">
+                            <li>${error}</li>
+                        </c:forEach>
+                    </ul>
+                </div>
+            </c:if>
         </body>
     </c:param>
 </c:import>
