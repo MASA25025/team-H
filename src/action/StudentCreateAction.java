@@ -11,16 +11,16 @@ import dao.ClassNumDao;
 import tool.Action;
 
 public class StudentCreateAction extends Action{
-	public String execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
-		HttpSession session = request.getSession();
+	public void execute(HttpServletRequest req,HttpServletResponse resp) throws Exception{
+		HttpSession session = req.getSession();
 
 //        DAO作成時に記入
         ClassNumDao dao=new ClassNumDao();
         List<Class_Num> ClassNum=dao.all();
 
-        request.setAttribute("class_num", ClassNum);
+        req.setAttribute("class_num", ClassNum);
 
-        return "student_create.jsp";
+		req.getRequestDispatcher("sutudent_create.jsp").forward(req, resp);
 	}
 
 }
