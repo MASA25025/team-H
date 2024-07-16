@@ -18,13 +18,11 @@ public class ClassNumDao extends DAO{
 
 			PreparedStatement st=con.prepareStatement(
 				"select * from CLASS_NUM where SCHOOL_CD like ?");
-			st.setSchool(1,school);
+			st.setString(1,school.getCd());
 			ResultSet rs=st.executeQuery();
 
 			while (rs.next()) {
-				Class_Num p=new Class_Num();
-				p.setClass_num(rs.getString("class_num"));
-				list.add(p);
+				list.add(rs.getString("class_num"));
 			}
 
 			st.close();
@@ -32,22 +30,5 @@ public class ClassNumDao extends DAO{
 
 			return list;
 		}
-		public List<Class_Num> all() throws Exception {
-			List<Class_Num> list = new ArrayList<Class_Num>();
-
-			Connection con = getConnection();
-			PreparedStatement st = con.prepareStatement("select * from class_num");
-			ResultSet rs = st.executeQuery();
-
-			while (rs.next()) {
-				Class_Num s = new Class_Num();
-				s.setClass_num(rs.getString("class_num"));
-				list.add(s);
-			}
-
-			// 学生リストを返却
-			return list;
-		}
-}
 
 
