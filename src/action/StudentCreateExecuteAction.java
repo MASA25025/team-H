@@ -32,7 +32,6 @@ public class StudentCreateExecuteAction extends Action {
         if (entryYear == null || entryYear.isEmpty()) {
             errors.add("入学年度を選択してください");
         }
-
         // 学生番号の検証
         if (studentNumber == null || studentNumber.isEmpty()) {
             errors.add("学生番号を入力してください");

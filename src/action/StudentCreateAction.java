@@ -16,6 +16,7 @@ public class StudentCreateAction extends Action{
 	public void execute(HttpServletRequest req,HttpServletResponse resp) throws Exception{
 		HttpSession session = req.getSession();
 
+
 		Teacher teacher = (Teacher)session.getAttribute("user");
 		LocalDate todaysDate = LocalDate.now();
 		int year = todaysDate.getYear();
