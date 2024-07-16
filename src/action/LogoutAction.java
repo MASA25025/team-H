@@ -7,17 +7,18 @@ import javax.servlet.http.HttpSession;
 import tool.Action;
 
 public class LogoutAction extends Action {
-	public String execute(
-		HttpServletRequest request, HttpServletResponse response
+	public void execute(
+		HttpServletRequest req, HttpServletResponse resp
 	) throws Exception {
 
-		HttpSession session=request.getSession();
+		HttpSession session=req.getSession();
 
 		if (session.getAttribute("teacher")!=null) {
 			session.removeAttribute("teacher");
-			return "logout.jsp";
+			req.getRequestDispatcher("logout.jsp").forward(req, resp);
+
 		}
 
-		return "menu.jsp";
+		req.getRequestDispatcher("menu.jsp").forward(req, resp);
 	}
 }
