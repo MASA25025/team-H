@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.Class_Num;
 import bean.School;
 
 public class ClassNumDao extends DAO{
@@ -29,6 +28,7 @@ public class ClassNumDao extends DAO{
 			con.close();
 
 			return list;
+		}
 		}
 
 
