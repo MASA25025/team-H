@@ -1,4 +1,4 @@
-//成績管理一覧画面へのaction
+//成績管理一覧画面へのaction ほぼ完成
 package action;
 
 import java.util.List;
