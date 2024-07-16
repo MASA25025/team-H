@@ -11,7 +11,7 @@ public class TestListSubjectDao {
 	private String baleSql = "select";
 
 	public List<TestListSubject> postFilter(ResultSet rSet) {
-
+		
 	}
 
 	public List<TestListSubject> filter(int entYear, String classNum, Subject subject, School school) {
