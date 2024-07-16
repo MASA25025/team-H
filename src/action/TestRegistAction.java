@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.Class_Num;
+import bean.Subject;
+import bean.Teacher;
 import bean.Test;
 import dao.ClassNumDao;
 import dao.SubjectDao;
@@ -18,18 +19,17 @@ public class TestRegistAction {
 	        HttpServletRequest request, HttpServletResponse response
 	    ) throws Exception {
 
-	        HttpSession session=request.getSession();
+			HttpSession session=request.getSession();
 
-//	        ログイン時に作成されたsessionからcdを取り出す
-	        String cd = (String) session.getAttribute("cd");
+			Teacher teacher = (Teacher)session.getAttribute("user");
 
-//	        DAO
+//	        ClassNumDAO
 	        ClassNumDao dao=new ClassNumDao();
-	        List<Class_Num> ClassNum=dao.Filter(cd);
+	        List<String> ClassNum=dao.Filter(teacher.getSchool());
 
 //	        SubjectDAO
 	        SubjectDao SJdao=new SubjectDao();
-	        String Subject=SJdao.get(cd);
+	        List<Subject> Subject =SJdao.Filter(teacher.getSchool());
 
 //	        ここでJSPで必要なものをsetAttribute
 	        request.setAttribute("class_num", ClassNum);
