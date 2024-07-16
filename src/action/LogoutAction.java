@@ -16,7 +16,6 @@ public class LogoutAction extends Action {
 		if (session.getAttribute("teacher")!=null) {
 			session.removeAttribute("teacher");
 			req.getRequestDispatcher("logout.jsp").forward(req, resp);
-
 		}
 
 		req.getRequestDispatcher("menu.jsp").forward(req, resp);
