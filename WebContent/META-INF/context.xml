@@ -1,6 +1,6 @@
 <Context reloadable="true">
 	<Resource
-		name="jdbc/shop_comp"
+		name="jdbc/javasd"
 		auth="Container"
 		type="javax.sql.DataSource"
 		driverClassName="org.h2.Driver"
