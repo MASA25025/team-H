@@ -24,7 +24,7 @@ public class TestListSutudentDao extends DAO{
 		PreparedStatement statement = connection.prepareStatement(
 				"select s.subjectName, "
 				+ "s.cd, t.num, t.point"
-				+"from subject  s join test t on t.subject_cd = s.cd"
+				+"from subject  s join test t on s.cd = t.subject_cd"
 				+"where student_no = ?");
 		try{
 		statement.setString(1, no);
