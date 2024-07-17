@@ -32,10 +32,6 @@ public class TestListStudentExecuteAction extends Action{
 
 		req.getRequestDispatcher("test_regist.jsp").forward(req, resp);
 
-
-
-
-
 	}
 
 }
