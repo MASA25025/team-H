@@ -54,7 +54,7 @@
 <body>
     <div class="login-container">
         <h2>ログイン</h2>
-        <form action="loginServlet" method="post">
+        <form action="LoginExecute.action" method="post">
             <label for="id">ID</label>
             <input type="text" id="id" name="id" value="admin">
 
