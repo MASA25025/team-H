@@ -6,25 +6,22 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.Class_Num;
+import bean.School;
 
 public class ClassNumDao extends DAO{
 
-		public List<Class_Num> Filter(String keyword) throws Exception {
-			List<Class_Num> list=new ArrayList<>();
+		public List<String> Filter(School school) throws Exception {
+			List<String> list=new ArrayList<>();
 
 			Connection con=getConnection();
 
 			PreparedStatement st=con.prepareStatement(
-				"select * from CLASS_NUM where CLASS_NUM like ?");
-			st.setString(1,keyword);
+				"select * from CLASS_NUM where SCHOOL_CD like ?");
+			st.setString(1,school.getCd());
 			ResultSet rs=st.executeQuery();
 
 			while (rs.next()) {
-				Class_Num p=new Class_Num();
-				p.setSchool_cd(rs.getString("school_cd"));
-				p.setClass_num(rs.getString("class_num"));
-				list.add(p);
+				list.add(rs.getString("class_num"));
 			}
 
 			st.close();
@@ -32,5 +29,6 @@ public class ClassNumDao extends DAO{
 
 			return list;
 		}
+		}
 
-}
+

@@ -34,7 +34,7 @@
 	<br>
 	<div class="logout-label">
 		<label>
-			<p>ログアウトしました。</p>
+			ログアウトしました。
 		</label>
 	</div>
 		<a href=".">ログイン</a>

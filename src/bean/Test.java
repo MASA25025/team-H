@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Test implements Serializable {
 	private Student student;
-	private String classnum;
+	private String classNum;
 	private Subject subject;
 	private School school;
 	private int no;
@@ -13,38 +13,40 @@ public class Test implements Serializable {
 	public Student getStudent() {
 		return student;
 	}
-	public void setStudent(Student student) {
-		this.student = student;
-	}
-	public String getClassnum() {
-		return classnum;
-	}
-	public void setClassnum(String classnum) {
-		this.classnum = classnum;
+	public String getClassNum() {
+		return classNum;
 	}
 	public Subject getSubject() {
 		return subject;
 	}
-	public void setSubject(Subject subject) {
-		this.subject = subject;
-	}
 	public School getSchool() {
 		return school;
-	}
-	public void setSchool(School school) {
-		this.school = school;
 	}
 	public int getNo() {
 		return no;
 	}
-	public void setNo(int no) {
-		this.no = no;
-	}
 	public int getPoint() {
 		return point;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+	public void setClassNum(String classNum) {
+		this.classNum = classNum;
+	}
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+	public void setSchool(School school) {
+		this.school = school;
+	}
+	public void setNo(int no) {
+		this.no = no;
 	}
 	public void setPoint(int point) {
 		this.point = point;
 	}
+
+
 
 }

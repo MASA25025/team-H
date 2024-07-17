@@ -7,12 +7,14 @@
 <c:param name="content">
 
 
-	<h1 id="menu-header">成績管理</h1>
+	<h1 id="menu-header">成績参照</h1>
 
 
 			<form action="update" method="get">
+			<div id ="form_all">
+				<div class="form1">
+					<a class="form_title">科目情報</a>
 
-				<div id="form">
 					<a class="form_elm">
 					入学年度<br>
 						<select name="ent_year">
@@ -29,15 +31,24 @@
 						</select>
 					</a>
 					<a class="form_elm">
-					回数<br>
-						<select name="no">
-						</select>
-					</a>
-					<a class="form_elm">
 					<input id="search" type="submit" value="検索">
 					</a>
 				</div>
-				</form>
+				<div class="ppp"><hr></div>
+				<div class ="form2">
+					<a class="form_title">学生情報</a>
+					<a id="subject">
+						学生番号<br>
+							<input type="text" name="no"size="30" placeholder="学生番号を入力してください">
+						</a>
+						<a class="form_elm">
+						<input id="search" type="submit" value="検索">
+						</a>
+				</div>
+			</div>
+			</form>
+		<p>科目情報を選択または学生情報を入力して
+			検索ボタンをクリックしてください</p>
 
 
 
@@ -52,11 +63,29 @@
 				padding:10px;
 				Vertical-align: middle
 			}
-			#form{
-				border: solid 1px #C0C0C0;
+			.form1{
+				display:flex;
+				padding:12px
+			}
+			.ppp{
+				margin:0 auto;
+				widht:100;
+				height:100;
+				padding-right: 20px;
+    			padding-left: 20px;
+			}
+			.form2{
 				border-radius:12px;
 				display:flex;
 				padding:12px
+			}
+			.form_title{
+				border-radius:12px;
+				display:flex;
+				padding:12px
+			}
+			#form_all{
+				border: solid 1px #C0C0C0;
 			}
 			.form_elm{
 				font-size:large;
@@ -65,7 +94,7 @@
 			}
 			#subject{
 				height:48px;
-				width:256px;
+				width:264px;
 			}
 			#search{
 				height:36px;
@@ -74,6 +103,11 @@
 				color:white;
 				border:none 1px #555555;
 				border-radius:6px;
+			}
+			p {
+				font-size:13px;
+				text-align:left;
+				color:#00bfff;
 			}
 
 
