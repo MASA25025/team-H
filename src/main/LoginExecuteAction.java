@@ -1,6 +1,5 @@
 package main;
 
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,7 +8,6 @@ import bean.Teacher;
 import dao.TeacherDao;
 import tool.Action;
 
-@WebServlet(urlPatterns = { "/main/login" })
 public class LoginExecuteAction extends Action{
 	public void execute(
 	        HttpServletRequest req, HttpServletResponse resp
