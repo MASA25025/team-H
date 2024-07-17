@@ -39,19 +39,15 @@ public class StudentUpdateExecuteAction extends Action {
 
 	     StudentDao studentDao = new StudentDao();
 
-	     try {
-	            boolean success = studentDao.save(student);
-	            if (success) {
-	                req.setAttribute("message", "学生情報が更新されました。");
-	            } else {
-	                req.setAttribute("message", "学生情報の更新に失敗しました。");
-	            }
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            req.setAttribute("message", "エラーが発生しました: " + e.getMessage());
-	        }
+	     boolean students = studentDao.save(student);
 
-	     req.getRequestDispatcher(".jsp").forward(req, resp);
+            if (students = true) {
+            	req.getRequestDispatcher("student_update_done.jsp").forward(req, resp);
+            } else {
+                req.setAttribute("message", "学生情報の更新に失敗しました。");
+            }
+
+	     req.getRequestDispatcher("student_update_done.jsp").forward(req, resp);
 
 	}
 

@@ -6,10 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import tool.Action;
 
 public class LoginAction extends Action {
-	public String execute(
-			HttpServletRequest request,HttpServletResponse response
-	) throws Exception{
+	public void execute(
+			HttpServletRequest req,HttpServletResponse resp) throws Exception{
 
-		return "login.jsp";
+		req.getRequestDispatcher("login.jsp").forward(req, resp);
 	}
 }

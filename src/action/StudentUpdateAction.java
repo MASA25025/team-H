@@ -3,9 +3,7 @@ package action;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,17 +22,11 @@ public class StudentUpdateAction extends Action {
 		Teacher teacher = (Teacher)session.getAttribute("user");
 
 		String no = req.getParameter("no");
-		String entYearStr="";
-		String classNum = "";
-		String isAttendStr = "";
-		int entYear = 0;
-		boolean isAttend = false;
 		Student students = null;
 		LocalDate todaysDate = LocalDate.now();
 		int year = todaysDate.getYear();
 		StudentDao sDao = new StudentDao();
 		ClassNumDao classNumDao = new ClassNumDao();
-		Map<String, String> errors = new HashMap<>();
 
 		List<String> list = classNumDao.Filter(teacher.getSchool());
 
