@@ -11,7 +11,6 @@ import bean.School;
 public class ClassNumDao extends DAO{
 
 		public List<String> Filter(School school) throws Exception {
-			System.out.println("ClassNumDao.filterの実行");
 			List<String> list=new ArrayList<>();
 
 			Connection con=getConnection();
@@ -19,7 +18,6 @@ public class ClassNumDao extends DAO{
 			PreparedStatement st=con.prepareStatement(
 				"select * from CLASS_NUM where SCHOOL_CD = ?");
 			st.setString(1,school.getCd());
-			System.out.println("SQLを実行：" + st);
 
 			ResultSet rs=st.executeQuery();
 

@@ -50,7 +50,7 @@
 
         <body>
             <h2>学生情報登録</h2>
-            <form id="registrationForm" action="StudentCreateExecuteAction" method="post" onsubmit="return validateForm()">
+            <form id="registrationForm" action="StudentCreateExecute.action" method="post" onsubmit="return validateForm()">
                 <label class="form-label" for="student-f1-select">入学年度</label>
         			<select class="form-select" id="student-f1-select" name="ent_year">
           			<option value="0">--------------------</option>
