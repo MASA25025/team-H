@@ -63,17 +63,19 @@
         </style>
 
         <div class="form-container">
-        	<div class="form-title">
-            <h2>学生情報変更</h2>
+            <div class="form-title">
+                <h2>学生情報変更</h2>
             </div>
             <form action="" method="post">
                 <div class="form-group">
-                    <label>入学年度</label>
-                    <label>　　　${students.ent_year}</label>
+                    <label>入学年度
+                        <input type="text" name="ent_year" value="${students.ent_year}" maxlength="4">
+                    </label>
                 </div>
                 <div class="form-group">
-                	<label>学生番号</label>
-                    <label>　　　${students.no}</label>
+                    <label>学生番号
+                        <input type="text" name="no" value="${students.no}" maxlength="10">
+                    </label>
                 </div>
                 <div class="form-group">
                     <label>氏名
@@ -90,9 +92,9 @@
                         </select>
                     </label>
                 </div>
-                <label>在学中
-			<input type="checkbox" name="si_attend" <c:if test="${!empty si_attend}">checked</c:if> />
-		</label>
+                    <label>在学中
+						<input type="checkbox" name="si_attend" <c:if test="${!empty si_attend}">checked</c:if> />
+					</label>
 
                 <div class="form-actions">
                     <button type="submit">変更</button>
