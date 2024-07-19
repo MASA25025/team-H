@@ -13,9 +13,10 @@ import bean.Test;
 import dao.ClassNumDao;
 import dao.SubjectDao;
 import dao.TestDao;
+import tool.Action;
 
-public class TestRegistAction {
-	public String execute(
+public class TestRegistAction extends Action{
+	public void execute(
 	        HttpServletRequest request, HttpServletResponse response
 	    ) throws Exception {
 
@@ -35,11 +36,11 @@ public class TestRegistAction {
 	        request.setAttribute("class_num", ClassNum);
 	        request.setAttribute("subject", Subject);
 
+	        request.getRequestDispatcher("test_regist.jsp").forward(request, response);
 //	        成績管理一覧画面へ続く
-	        return "test_regist.jsp";
 	    }
 
-	protected String doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
 				HttpSession session=request.getSession();
@@ -55,7 +56,6 @@ public class TestRegistAction {
 				List<Test> Test=Testdao.filter(ent_year,class_num,test.getSubject(),num,teacher.getSchool());
 
 				request.setAttribute("Test", Test);
-
-				return "test_regist.jsp";
+				request.getRequestDispatcher("test_regist.jsp").forward(request, response);
 	}
 }
