@@ -2,50 +2,105 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:import url="/base.jsp">
+    <c:param name="title">得点管理システム</c:param>
+    <c:param name="content">
 
-<c:param name="title">得点管理システム</c:param>
+        <style>
+            .form-container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: white;
+            }
+            .form-title{
+            background-color: #f9f9f9;
+            }
+            .form-container h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .form-group {
+                margin-bottom: 15px;
+            }
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+            }
+            .form-group input,
+            .form-group select {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            .form-group input[readonly] {
+                background-color: #e9ecef;
+            }
 
-<c:param name="content">
+            .form-actions {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .form-actions button,
+            .form-actions a {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                text-decoration: none;
+                text-align: center;
+                background-color: #007bff;
+                color: #fff;
+            }
+            .form-actions a {
+                background-color: #6c757d;
+            }
+            .form-actions button:hover,
+            .form-actions a:hover {
+                opacity: 0.8;
+            }
+        </style>
 
-	<h2>学生情報変更</h2>
+        <div class="form-container">
+            <div class="form-title">
+                <h2>学生情報変更</h2>
+            </div>
+            <form action="" method="post">
+                <div class="form-group">
+                    <label>入学年度
+                        <input type="text" name="ent_year" value="${students.ent_year}" maxlength="4">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>学生番号
+                        <input type="text" name="no" value="${students.no}" maxlength="10">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>氏名
+                        <input type="text" name="name" value="${students.name}" maxlength="30">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>クラス
+                        <select name="class_num">
+                            <option value="">-------</option>
+                            <c:forEach var="num" items="${class_num_set}">
+                                <option value="${num}" <c:if test="${num == students.class_num}">selected</c:if>>${num}</option>
+                            </c:forEach>
+                        </select>
+                    </label>
+                </div>
+                    <label>在学中
+						<input type="checkbox" name="si_attend" <c:if test="${!empty si_attend}">checked</c:if> />
+					</label>
 
-	<form action= method="post">
-	<div>
-		<label>入学年度
-			<input value="${studens.ent_year}" readonly="readonly">
-		</label>
-	</div>
-	<div>
-		<label>学生番号
-			<input value="${studenst.no}" readonly="readonly">
-		</label>
-	</div>
-	<div>
-			<label>氏名
-			<input type="text" name="neme" value="${students.name}" maxlength="30">
-		</label>
-	</div>
-	<div>
-		<label>クラス
-		<select name="class_num">
-			<option value="${num}">-------</option>
-			<c:forEach var="num" items="${class_num_set}" ></c:forEach>
-				<option value="${num}" <c:if test="${num==class_num}">selected</c:if>>${year}</option>
-		</select>
-		</label>
-	</div>
-	<div>
-		<label>在学中
-			<input type="checkbox" name="si_attend" <c:if test="${!empty si_attend}">checked</c:if> />
-		</label>
-	</div>
-	<div>
-		<button>変更</button>
-	</div>
-
-		<a href="">戻る</a>
-	</form>
-
-</c:param>
-
+                <div class="form-actions">
+                    <button type="submit">変更</button>
+                    <a href="#">戻る</a>
+                </div>
+            </form>
+        </div>
+    </c:param>
 </c:import>
