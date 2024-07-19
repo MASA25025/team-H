@@ -13,11 +13,11 @@ public class LogoutAction extends Action {
 
 		HttpSession session=req.getSession();
 
-		if (session.getAttribute("teacher")!=null) {
-			session.removeAttribute("teacher");
+		if (session.getAttribute("user")!=null) {
+			session.removeAttribute("user");
 			req.getRequestDispatcher("logout.jsp").forward(req, resp);
 		}
 
-		req.getRequestDispatcher("menu.jsp").forward(req, resp);
+		req.getRequestDispatcher("logout.jsp").forward(req, resp);
 	}
 }

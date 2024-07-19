@@ -52,7 +52,7 @@
 	<h1 style="font-size: 16px, color: #333;">得点管理システム</h1>
 		<div id="head_li">
 			<a style="margin-right:8px;">${ user.name }様</a>
-			<a style="margin-right:8px;" href="LogoutAction">ログアウト</a>
+			<a style="margin-right:8px;" href="Logout.action">ログアウト</a>
 		</div>
 	</div>
 	<div id="container">
