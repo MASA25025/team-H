@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import tool.Action;
 
 public class MenuAction extends Action {
-	public String execute(
-			HttpServletRequest request,HttpServletResponse response
+	public void execute(
+			HttpServletRequest req,HttpServletResponse resp
 	) throws Exception{
 
-		return "menu.jsp";
+		req.getRequestDispatcher("menu.jsp").forward(req, resp);
 	}
 }
