@@ -13,7 +13,6 @@
 		変更が完了しました
 	</div>
 	<div id="link">
-		<a href="" class="link">戻る</a>
 		<a href="" class="link" style="left:96px;">学生一覧</a>
 	</div>
 	<style>
