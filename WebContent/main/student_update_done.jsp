@@ -13,7 +13,7 @@
 		変更が完了しました
 	</div>
 	<div id="link">
-		<a href="" class="link" style="left:96px;">学生一覧</a>
+		<a href="student_list.jsp" class="link" style="left:;">学生一覧</a>
 	</div>
 	<style>
 	#menu-header{
@@ -44,6 +44,9 @@
 		position:absolute;
 		bottom:0;
 		padding-right: 48px;
+	}
+	.a{
+	text-align: left;
 	}
 </style>
 
