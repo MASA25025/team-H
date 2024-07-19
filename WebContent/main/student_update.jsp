@@ -11,14 +11,12 @@
                 margin: 0 auto;
                 padding: 20px;
                 background-color: white;
-                text-align: left; /* 左寄せにする */
             }
-            .form-title {
-                background-color: #f9f9f9;
-                text-align: left; /* 左寄せにする */
+            .form-title{
+            background-color: #f9f9f9;
             }
             .form-container h2 {
-                text-align: left; /* 左寄せにする */
+                text-align: center;
                 margin-bottom: 20px;
             }
             .form-group {
@@ -27,7 +25,6 @@
             .form-group label {
                 display: block;
                 margin-bottom: 5px;
-                text-align: left; /* 左寄せにする */
             }
             .form-group input,
             .form-group select {
@@ -66,17 +63,17 @@
         </style>
 
         <div class="form-container">
-            <div class="form-title">
-                <h2>学生情報変更</h2>
+        	<div class="form-title">
+            <h2>学生情報変更</h2>
             </div>
             <form action="" method="post">
                 <div class="form-group">
                     <label>入学年度</label>
-                    <label>${students.ent_year}</label>
+                    <label>　　　${students.ent_year}</label>
                 </div>
                 <div class="form-group">
-                    <label>学生番号</label>
-                    <label>${students.no}</label>
+                	<label>学生番号</label>
+                    <label>　　　${students.no}</label>
                 </div>
                 <div class="form-group">
                     <label>氏名
@@ -93,11 +90,10 @@
                         </select>
                     </label>
                 </div>
-                <div class="form-group">
-                    <label>在学中
-                        <input type="checkbox" name="si_attend" <c:if test="${!empty si_attend}">checked</c:if> />
-                    </label>
-                </div>
+                <label>在学中
+			<input type="checkbox" name="si_attend" <c:if test="${!empty si_attend}">checked</c:if> />
+		</label>
+
                 <div class="form-actions">
                     <button type="submit">変更</button>
                     <a href="#">戻る</a>
