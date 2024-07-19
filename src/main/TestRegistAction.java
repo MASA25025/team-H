@@ -45,14 +45,14 @@ public class TestRegistAction {
 				HttpSession session=request.getSession();
 
 				Teacher teacher = (Teacher)session.getAttribute("user");
+				Test test = (Test)session.getAttribute("user");
 
 				int ent_year = Integer.parseInt(request.getParameter("ent_year"));
 				String class_num = request.getParameter("class_num");
-				String subject = request.getParameter("subject_name");
 				int num = Integer.parseInt(request.getParameter("sub_cou"));
 
 				TestDao Testdao=new TestDao();
-				List<Test> Test=Testdao.filter(ent_year,class_num,subject,num,teacher.getSchool());
+				List<Test> Test=Testdao.filter(ent_year,class_num,test.getSubject(),num,teacher.getSchool());
 
 				request.setAttribute("Test", Test);
 
