@@ -66,7 +66,7 @@ public class StudentListAction extends Action {
 			entYearSet.add(i);
 		}
 
-		req.setAttribute("f", entYear);
+		req.setAttribute("f1", entYear);
 		req.setAttribute("f2", classNum);
 //		在学フラグの判定
 		if(isAttendStr !=null){

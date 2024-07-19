@@ -17,7 +17,7 @@ public class ClassNumDao extends DAO{
 			Connection con=getConnection();
 
 			PreparedStatement st=con.prepareStatement(
-				"select * from CLASS_NUM where SCHOOL_CD like ?");
+				"select * from CLASS_NUM where SCHOOL_CD = ?");
 			st.setString(1,school.getCd());
 			System.out.println("SQLを実行：" + st);
 
