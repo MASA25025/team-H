@@ -38,6 +38,7 @@ public class TestListSubjectDao extends DAO{
 			ResultSet rSet = statement.executeQuery();
 			String Num = null;
 
+
 			if{
 				int prevStudent_no = 0;
 				int prevPoint = 0;
