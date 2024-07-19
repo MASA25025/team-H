@@ -81,7 +81,7 @@
 	<h2>メニュー</h2>
 </div>
 	<div id=field>
-		<div id="student"><a href="/Student_Manager/main/student_list.jsp">学生管理</a></div>
+		<div id="student"><a href="../main/StudentList.action">学生管理</a></div>
 		<div id="grade">
 			<div>成績管理</div>
 			<a href="">成績登録</a>
