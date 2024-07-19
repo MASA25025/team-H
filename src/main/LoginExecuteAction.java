@@ -23,8 +23,9 @@ public class LoginExecuteAction extends Action{
 	        Teacher teacher=dao.login(id, password);
 
 	        if (teacher!=null) {
-	            session.setAttribute("teacher", teacher);
-	            resp.sendRedirect("Menu.action");
+	            session.setAttribute("user", teacher);
+//	            resp.sendRedirect("Menu.action");
+		        req.getRequestDispatcher("menu.jsp").forward(req, resp);
 	        }
 
 	        req.getRequestDispatcher("login.jsp").forward(req, resp);
