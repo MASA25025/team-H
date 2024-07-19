@@ -29,7 +29,6 @@ public class TestListSubjectDao extends DAO{
 				"from     test t join student s on t.student_No = s.no"+
 				"where  s.ent_Year =? and t.class_Num =? and t.subject_cd =? and t.school_cd=? "
 				);
-
 			statement.setInt(1, entYear);
 			statement.setString(2, classNum);
 			statement.setString(3, subject_cd);

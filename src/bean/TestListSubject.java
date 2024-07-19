@@ -38,15 +38,15 @@ public Map<Integer, Integer> getPoint() {
 public void setPoint(Map<Integer, Integer> point) {
 	this.point = point;
 }
-
-public String getPoints(int key) {
-	Integer p = this.point.get(key);
-	if(p==null){
-		return "-";
-	}else {
-		return p.toString();
-	}
-}
+//
+//public String getPoints(int key) {
+//	Integer p = this.point.get(key);
+//	if(p==null){
+//		return "-";
+//	}else {
+//		return p.toString();
+//	}
+//}
 public int getEntYear() {
 	return entYear;
 }
