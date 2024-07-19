@@ -7,7 +7,7 @@
 
 <context-param>
 	<param-name>upload-dir</param-name>
-	<param-value>C:/work/pleiades/workspace/shop/WebContent</param-value>
+	<param-value>C:/work/pleiades/workspace/Student_Manager/WebContent</param-value>
 </context-param>
 
 

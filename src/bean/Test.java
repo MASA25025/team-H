@@ -28,7 +28,7 @@ public class Test implements Serializable {
 	public int getPoint() {
 		return point;
 	}
-	public void setStudent(Student student) {
+	public void setStudent(Student studsent) {
 		this.student = student;
 	}
 	public void setClassNum(String classNum) {

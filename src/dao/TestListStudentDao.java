@@ -9,7 +9,7 @@ import java.util.List;
 
 import bean.TestListStudent;
 
-public class TestListSutudentDao extends DAO{
+public class TestListStudentDao extends DAO{
 
 	private String baleSql = "select";
 
@@ -24,7 +24,7 @@ public class TestListSutudentDao extends DAO{
 		PreparedStatement statement = connection.prepareStatement(
 				"select s.subjectName, "
 				+ "s.cd, t.num, t.point"
-				+"from subject  s join test t on s.cd = t.subject_cd"
+				+"from subject  s join test t on  s.cd = t.subject_cd"
 				+"where student_no = ?");
 		try{
 		statement.setString(1, no);
@@ -33,7 +33,7 @@ public class TestListSutudentDao extends DAO{
 		ResultSet rSet = statement.executeQuery();
 		while (rSet.next()) {
 			listStudent.setSubjectCd(rSet.getString("subject_cd"));
-			listStudent.setSubjectName(rSet.getString("subjectCd"));
+			listStudent.setSubjectName(rSet.getString("subject_name"));
 			listStudent.setNum(rSet.getInt("num"));
 			listStudent.setPoint(rSet.getInt("point"));
 

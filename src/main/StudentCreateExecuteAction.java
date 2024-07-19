@@ -1,4 +1,4 @@
-package action;
+package main;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -63,9 +63,11 @@ public class StudentCreateExecuteAction extends Action {
 
         // データベース接続情報
         String jdbcUrl = "jdbc:h2:tcp://localhost/~/javasd";
-        String sql = "sa";
+        String dbUser = "sa";
+        String dbPassword = ""; // パスワードを設定してください
+        String sql = "SELECT COUNT(*) FROM students WHERE student_number = ?";
 
-        try (Connection conn = DriverManager.getConnection(jdbcUrl);
+        try (Connection conn = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, studentNumber);
@@ -83,12 +85,8 @@ public class StudentCreateExecuteAction extends Action {
 
         return isDuplicate;
     }
-
-	@Override
-	public void execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
-
-
+    @Override
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        // TODO 自動生成されたメソッド・スタブ
+    }
 }

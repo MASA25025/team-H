@@ -51,7 +51,7 @@
 	<div id="header">
 	<h1 style="font-size: 16px, color: #333;">得点管理システム</h1>
 		<div id="head_li">
-			<a style="margin-right:8px;">username${ teacher.login }様</a>
+			<a style="margin-right:8px;">${ teacher.name }様</a>
 			<a style="margin-right:8px;" href="LogoutAction">ログアウト</a>
 		</div>
 	</div>

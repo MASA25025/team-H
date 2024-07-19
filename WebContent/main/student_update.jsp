@@ -9,7 +9,7 @@
 
 	<h2>学生情報変更</h2>
 
-	<form method="get">
+	<form action= method="post">
 	<div>
 		<label>入学年度
 			<input value="${studens.ent_year}" readonly="readonly">

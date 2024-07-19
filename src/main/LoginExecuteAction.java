@@ -1,23 +1,22 @@
-package action;
+package main;
 
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Teacher;
 import dao.TeacherDao;
+import tool.Action;
 
-@WebServlet(urlPatterns = { "/main/login" })
-public class LoginExecuteAction {
-	public String execute(
-	        HttpServletRequest request, HttpServletResponse response
+public class LoginExecuteAction extends Action{
+	public void execute(
+	        HttpServletRequest req, HttpServletResponse resp
 	    ) throws Exception {
 
-	        HttpSession session=request.getSession();
+	        HttpSession session=req.getSession();
 
-	        String id=request.getParameter("id");
-	        String password=request.getParameter("password");
+	        String id=req.getParameter("id");
+	        String password=req.getParameter("password");
 
 //	        DAO作成時に記入
 	        TeacherDao dao=new TeacherDao();
@@ -25,10 +24,10 @@ public class LoginExecuteAction {
 
 	        if (teacher!=null) {
 	            session.setAttribute("teacher", teacher);
-	            return "menu.jsp";
+	            resp.sendRedirect("Menu.action");
 	        }
 
-	        return "login.jsp";
+	        req.getRequestDispatcher("login.jsp").forward(req, resp);
 	    }
 }
 
