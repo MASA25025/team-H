@@ -13,6 +13,10 @@ private String studentName;
 private String classNum;
 private Map < Integer , Integer > point = new HashMap<>();
 private int entYear;
+private String point01;
+private String point02;
+
+
 
 public String getStudentNo() {
 	return studentNo;
@@ -39,15 +43,19 @@ public void setPoint(Map<Integer, Integer> point) {
 	this.point = point;
 }
 
-//
-//public String getPoints(int key) {
-//	Integer p = this.point.get(key);
-//	if(p==null){
-//		return "-";
-//	}else {
-//		return p.toString();
-//	}
-//}
+public String getPoint01() {
+	return  point01;
+}
+public void setPoint01(String point01) {
+	this.point01 = point01;
+}
+
+public String getPoint02() {
+	return  point02;
+}
+public void setPoint02(String point02) {
+	this.point02 = point02;
+}
 public int getEntYear() {
 	return entYear;
 }

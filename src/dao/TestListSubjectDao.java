@@ -4,15 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import bean.School;
-import bean.TestListSubject;
+import bean.TestListSubject;;
 
 public class TestListSubjectDao extends DAO{
-	private String baleSql = "select";
 
 	public List<TestListSubject> postFilter(ResultSet rSet) {
 		return null;
@@ -24,11 +20,24 @@ public class TestListSubjectDao extends DAO{
 		try{
 		Connection connection = getConnection();
 		PreparedStatement statement = connection.prepareStatement(
-
-				"select   t.student_No, s.Name, t.class_Num,t.point, s.ent_Year, t.no"+
-				"from     test t join student s on t.student_No = s.no"+
-				"where  s.ent_Year =? and t.class_Num =? and t.subject_cd =? and t.school_cd=? "
-				);
+				"SELECT"+
+					"s.ent_Year"+
+					"t.class_Num,"+
+					"t.student_No,"+
+					"s.Name,"+
+					"MAX(CASE WHEN t.no = 1 THEN t.point ELSE NULL END) AS POINT_NO1,"+
+					"MAX(CASE WHEN t.no = 2 THEN t.point ELSE NULL END) AS POINT_NO2,"+
+				"FROM"+
+					"test t"+
+					"JOIN"+
+					"student s ON t.student_No = s.no"+
+				"WHERE"+
+					"s.ent_Year = ?"+
+					"AND t.class_Num = ?"+
+					"AND t.subject_cd = ?"+
+					"AND t.school_cd = ?"+
+				"GROUP BY"+
+					"t.student_No, s.Name, t.class_Num, s.ent_Year;");
 			statement.setInt(1, entYear);
 			statement.setString(2, classNum);
 			statement.setString(3, subject_cd);
@@ -36,37 +45,14 @@ public class TestListSubjectDao extends DAO{
 
 			TestListSubject listSubject = new TestListSubject();
 			ResultSet rSet = statement.executeQuery();
-			String Num = null;
 
-
-			if{
-				int prevStudent_no = 0;
-				int prevPoint = 0;
-				Map<Integer, Integer> map = map<0,0>;
-						while(rSet.next()){
-						student_no = 学生番号を取得
-						student_point = 点数を取得
-						if(prevStudent_no == student_no){
-						mapにprevpointとrSetのポイントをput
-						マップをリストにadd
-						map = null
-						} else {
-						if (map != null) {
-						マップをリストにadd
-						}
-						map = new hashmap<>()
-						mapにrSetのポイントとnullをセット
-						prevStudent_no = student_no
-						prevPoint = student_point
-						}
-						}
-			}
 			while (rSet.next()) {
 
 				listSubject.setStudentNo(rSet.getString("studentNo"));
 				listSubject.setStudentName(rSet.getString("stundetName"));
 				listSubject.setClassNum(rSet.getString("classNum"));
-				listSubject.setPoint();
+				listSubject.setPoint01(rSet.getString("point_no01"));
+				listSubject.setPoint02(rSet.getString("point_no02"));
 				listSubject.setEntYear(rSet.getInt("entYear"));
 
 			}
