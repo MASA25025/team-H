@@ -59,8 +59,8 @@
 		<div id="sidebar">
 		<nav>
 			<ul>
-				<li><a href="">メニュー</a></li>
-				<li><a href="">学生管理</a></li>
+				<li><a href="/Student_Manager/main/menu.jsp">メニュー</a></li>
+				<li><a href="/Student_Manager/main/student_list.jsp">学生管理</a></li>
 				<li>成績管理
 				<ul>
 					<li><a href="">成績登録</a></li>
