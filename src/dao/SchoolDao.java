@@ -13,7 +13,7 @@ public class SchoolDao extends DAO{
 		Connection con=getConnection();
 
 		PreparedStatement st=con.prepareStatement(
-			"select STUDENT_CD from STUDENT where NO like ?");
+			"select * from school where cd = ?");
 		st.setString(1,no);
 		ResultSet rs=st.executeQuery();
 

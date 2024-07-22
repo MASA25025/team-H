@@ -15,7 +15,7 @@
 		<label>
 			ログアウトしました。
 		</label>
-		<a href=".">ログイン</a>
+		<a href="Login.action">ログイン</a>
 	</div>
 </body>
 </c:param>

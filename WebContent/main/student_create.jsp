@@ -50,7 +50,7 @@
 
         <body>
             <h2>学生情報登録</h2>
-            <form id="registrationForm" action="StudentCreateExecuteAction" method="post" onsubmit="return validateForm()">
+            <form id="registrationForm" action="StudentCreateExecute.action" method="post" onsubmit="return validateForm()">
                 <label class="form-label" for="student-f1-select">入学年度</label>
         			<select class="form-select" id="student-f1-select" name="ent_year">
           			<option value="0">--------------------</option>
@@ -69,12 +69,14 @@
                 <input type="text" id="name" name="name" required placeholder="氏名を入力してください">
                 <div id="nameError" class="error"></div>
 
-                <label for="class_num">クラス</label>
-                <select name="classNumber">
-                    <c:forEach var="classnum" items="${class_num}">
-                        <option value="${classnum.class_num}">${classnum.class_num}</option>
-                    </c:forEach>
-                </select>
+                <label class="form-label" for="student-f2-select">クラス</label>
+		        <select class="form-select" id="student-f2-select" name="class_num">
+		          <option value="0"></option>
+		          <c:forEach var="num" items="${class_num_set}">
+		            <%-- 現在のnumと選択されていたf2が一致していた場合selectedを追記 --%>
+		            <option value="${num}" <c:if test="${num==class_num}">selected</c:if>>${num}</option>
+		          </c:forEach>
+		        </select>
                 <button type="submit">登録して終了</button>
             </form>
             <a href="menu.jsp">戻る</a>
