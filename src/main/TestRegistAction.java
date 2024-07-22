@@ -1,13 +1,14 @@
 //成績管理一覧画面へのaction ほぼ完成
 package main;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.Student;
 import bean.Subject;
 import bean.Teacher;
 import bean.Test;
@@ -22,9 +23,18 @@ public class TestRegistAction extends Action{
 	    ) throws Exception {
 
 			HttpSession session=request.getSession();
+			String entYearStr="";
+			LocalDate todaysDate = LocalDate.now();
+			int year = todaysDate.getYear();
 
 			Teacher teacher = (Teacher)session.getAttribute("user");
-			Student student = (Student)session.getAttribute("user");
+
+//			入学年度をInt型にし、プルダウン用にリストをつくる
+			List<Integer> entYearSet = new ArrayList<>();
+//			10年前から1年後までの年をリストに追加
+			for (int i = year - 10; i < year + 1; i++){
+				entYearSet.add(i);
+			}
 
 //	        ClassNumDAO
 	        ClassNumDao dao=new ClassNumDao();
@@ -37,7 +47,7 @@ public class TestRegistAction extends Action{
 //	        ここでJSPで必要なものをsetAttribute
 	        request.setAttribute("class_num", ClassNum);
 	        request.setAttribute("subject", Subject);
-	        request.setAttribute("student", student);
+	        request.setAttribute("ent_year_set", entYearSet);
 
 	        request.getRequestDispatcher("test_regist.jsp").forward(request, response);
 //	        成績管理一覧画面へ続く

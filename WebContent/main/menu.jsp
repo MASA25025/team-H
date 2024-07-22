@@ -84,8 +84,8 @@
 		<div id="student"><a href="../main/StudentList.action">学生管理</a></div>
 		<div id="grade">
 			<div>成績管理</div>
-			<a href="">成績登録</a>
-			<a href="">成績参照</a>
+			<a href="../main/TestRegist.action">成績登録</a>
+			<a href="../main/TestList.action">成績参照</a>
 		</div>
 		<div id="subject"><a href="">科目管理</a></div>
 	</div>
