@@ -56,10 +56,10 @@
         <h2>ログイン</h2>
         <form action="LoginExecute.action" method="post">
             <label for="id">ID</label>
-            <input type="text" id="id" name="id" value="admin">
+            <input type="text" name="id" value="admin1" maxlength="20" placeholder="半角で入力してください"  required>
 
             <label for="password">パスワード</label>
-            <input type="password" id="password" name="password" value="******"><br>
+            <input type="password" name="password" value="password" maxlength="20" placeholder="２０文字以内の半角英数字でご入力ください" required><br>
 
             <input type="checkbox" id="showPassword">
             <label for="showPassword">パスワードを表示</label>

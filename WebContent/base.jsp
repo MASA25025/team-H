@@ -51,16 +51,16 @@
 	<div id="header">
 	<h1 style="font-size: 16px, color: #333;">得点管理システム</h1>
 		<div id="head_li">
-			<a style="margin-right:8px;">${ teacher.name }様</a>
-			<a style="margin-right:8px;" href="LogoutAction">ログアウト</a>
+			<a style="margin-right:8px;">${ user.name }様</a>
+			<a style="margin-right:8px;" href="Logout.action">ログアウト</a>
 		</div>
 	</div>
 	<div id="container">
 		<div id="sidebar">
 		<nav>
 			<ul>
-				<li><a href="">メニュー</a></li>
-				<li><a href="">学生管理</a></li>
+				<li><a href="../main/menu.jsp">メニュー</a></li>
+				<li><a href="../main/StudentList.action">学生管理</a></li>
 				<li>成績管理
 				<ul>
 					<li><a href="">成績登録</a></li>

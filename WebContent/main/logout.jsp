@@ -36,6 +36,10 @@
 		<label>
 			ログアウトしました。
 		</label>
+<<<<<<< HEAD
+=======
+		<a href="Login.action">ログイン</a>
+>>>>>>> branch 'master' of https://github.com/MASA25025/team-H.git
 	</div>
 		<a href=".">ログイン</a>
 </body>
