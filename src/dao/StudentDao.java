@@ -32,7 +32,7 @@ public class StudentDao extends DAO {
 			if(rSet.next()){
 				student.setNo(rSet.getString("no"));
 				student.setName(rSet.getString("name"));
-				student.setEntYear(rSet.getInt("ent_yaer"));
+				student.setEntYear(rSet.getInt("ent_year"));
 				student.setClassNum(rSet.getString("class_num"));
 				student.setAttend(rSet.getBoolean("is_attend"));
 				student.setSchool(schoolDao.get(rSet.getString("school_cd")));
@@ -73,7 +73,7 @@ public class StudentDao extends DAO {
 //				インスタンスに結果をセット
 				student.setNo(rSet.getString("no"));
 				student.setName(rSet.getString("name"));
-				student.setEntYear(rSet.getInt("ent_yaer"));
+				student.setEntYear(rSet.getInt("ent_year"));
 				student.setClassNum(rSet.getString("class_num"));
 				student.setAttend(rSet.getBoolean("is_attend"));
 				student.setSchool(school);
@@ -97,7 +97,7 @@ public class StudentDao extends DAO {
 
 		ResultSet rSet = null;
 
-		String condition = "and ent_yaer =? and class_num =?";
+		String condition = "and ent_year =? and class_num =?";
 
 		String order = "order by no asc";
 //		SQL文の在学フラッグ条件
@@ -147,7 +147,7 @@ public class StudentDao extends DAO {
 
 		ResultSet rSet = null;
 
-		String condition = "and ent_yaer=?";
+		String condition = "and ent_year=?";
 
 		String order = "order by no asc";
 
@@ -251,7 +251,7 @@ public class StudentDao extends DAO {
 //					学生が存在しなかった場合
 //					プリペアードステートメントにINSERT文をセット
 					statement = connection.prepareStatement(
-							"insert into student(no, name, ent_yaer, class_num, is_attend, school_cd) values(?, ?, ?, ?, ?, ?)");
+							"insert into student(no, name, ent_year, class_num, is_attend, school_cd) values(?, ?, ?, ?, ?, ?)");
 //					プリペアードステートメントに値をバインド
 					statement.setString(1, student.getNo());
 					statement.setString(2, student.getName());
@@ -263,7 +263,7 @@ public class StudentDao extends DAO {
 //					学生が存在した場合
 //					プリペアードステートメントにUPDATE文をセット
 					statement = connection.prepareStatement(
-							"update student set name =?, ent_yaer =?, class_num=?, is_attend=?, where no=?");
+							"update student set name =?, ent_year =?, class_num=?, is_attend=?, where no=?");
 					statement.setString(1, student.getName());
 					statement.setInt(2, student.getEntYear());
 					statement.setString(3, student.getClassNum());

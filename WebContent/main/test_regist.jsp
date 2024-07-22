@@ -10,27 +10,39 @@
 	<h1 id="menu-header">成績管理</h1>
 
 
-			<form action="update" method="get">
+			<form action="TestRegistAction" method="get">
 
 				<div id="form">
 					<a class="form_elm">
 					入学年度<br>
 						<select name="ent_year">
+						<c:forEach var="student" items="${ student }">
+							<option value="year">${ student.entyear }</option>
+						</c:forEach>
 						</select>
 					</a>
 					<a class="form_elm">
 					クラス<br>
 						<select name="class_num">
+						<c:forEach var="classnum" items="${ ClassNum }">
+							<option value="num">${ ClassNum.class_num }</option>
+						</c:forEach>
 						</select>
 					</a>
 					<a id="subject">
 					科目<br>
 						<select name="subject_name">
+						<c:forEach var="subject" items="${ Subject }">
+							<option value="subject.cd">${ Subject.name }</option>
+						</c:forEach>
 						</select>
 					</a>
 					<a class="form_elm">
 					回数<br>
 						<select name="no">
+						<c:forEach var="student" items="${ student }">
+							<option value="num">${ student.no }</option>
+						</c:forEach>
 						</select>
 					</a>
 					<a class="form_elm">
@@ -38,6 +50,38 @@
 					</a>
 				</div>
 				</form>
+
+				<c:choose>
+  <c:when test="${Test.size() > 0}">
+    <div>検索結果 : ${Test.size()}件</div>
+    <table class="table table-hover">
+      <tr>
+        <th>入学年度</th>
+        <th>クラス</th>
+        <th>学生番号</th>
+        <th>氏名</th>
+        <th>点数</th>
+
+        <th></th>
+        <th></th>
+      </tr>
+    </table>
+    <c:forEach var="test" items="${Test}">
+      <tr>
+        <td>${Test.entYear}</td>
+        <td>${Test.classNum}</td>
+        <td>${Test.no}</td>
+        <td>${Test.name}</td>
+        <td>${Test.point}</td>
+
+        <td><a href="TestRegistExecute.action">登録して終了</a></td>
+      </tr>
+    </c:forEach>
+  </c:when>
+  <c:otherwise>
+    <div>成績情報が存在しませんでした</div>
+  </c:otherwise>
+</c:choose>
 
 
 

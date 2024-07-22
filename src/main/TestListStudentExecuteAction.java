@@ -28,9 +28,11 @@ public class TestListStudentExecuteAction extends Action{
 
 		studentlist = tsDao.filter(noStr);
 
+
+		req.setAttribute("f1", null);
 		req.setAttribute("studentList", studentlist);
 
-		req.getRequestDispatcher("test_regist.jsp").forward(req, resp);
+		req.getRequestDispatcher("test_list.jsp").forward(req, resp);
 
 	}
 
