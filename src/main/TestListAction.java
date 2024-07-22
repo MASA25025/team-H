@@ -1,4 +1,3 @@
-//成績管理一覧画面へのaction ほぼ完成
 package main;
 
 import java.util.List;
@@ -10,13 +9,11 @@ import javax.servlet.http.HttpSession;
 import bean.Student;
 import bean.Subject;
 import bean.Teacher;
-import bean.Test;
 import dao.ClassNumDao;
 import dao.SubjectDao;
-import dao.TestDao;
 import tool.Action;
 
-public class TestRegistAction extends Action{
+public class TestListAction extends Action{
 	public void execute(
 	        HttpServletRequest request, HttpServletResponse response
 	    ) throws Exception {
@@ -39,26 +36,7 @@ public class TestRegistAction extends Action{
 	        request.setAttribute("subject", Subject);
 	        request.setAttribute("student", student);
 
-	        request.getRequestDispatcher("test_regist.jsp").forward(request, response);
+	        request.getRequestDispatcher("test_list.jsp").forward(request, response);
 //	        成績管理一覧画面へ続く
 	    }
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-
-				HttpSession session=request.getSession();
-
-				Teacher teacher = (Teacher)session.getAttribute("user");
-				Test test = (Test)session.getAttribute("user");
-
-				int ent_year = Integer.parseInt(request.getParameter("ent_year"));
-				String class_num = request.getParameter("class_num");
-				int num = Integer.parseInt(request.getParameter("sub_cou"));
-
-				TestDao Testdao=new TestDao();
-				List<Test> Test=Testdao.filter(ent_year,class_num,test.getSubject(),num,teacher.getSchool());
-
-				request.setAttribute("Test", Test);
-				request.getRequestDispatcher("test_regist.jsp").forward(request, response);
-	}
 }
