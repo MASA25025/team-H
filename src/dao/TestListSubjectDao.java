@@ -13,7 +13,18 @@ public class TestListSubjectDao extends DAO{
 	public List<TestListSubject> postFilter(ResultSet rSet) {
 		return null;
 	}
-
+//
+//	public List<String> Sub_List(School school) throws Exception{
+//		List<String> subject_list = new ArrayList<>();
+//		Connection connection = getConnection();
+//		String schoolCd = school.getCd();
+//		PreparedStatement statement = connection.prepareStatement(
+//				"select Name"+
+//				"from SUBJECT"+
+//				"where SCHOOL_CD =?"
+//				);
+//		statement.setString(1, schoolCd);
+//	}
 	public List<TestListSubject> filter(int entYear, String classNum, String subject_cd, String school_cd) {
 		List<TestListSubject> testListSubject = new ArrayList<TestListSubject>();
 
