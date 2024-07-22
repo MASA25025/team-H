@@ -49,6 +49,62 @@
 			</form>
 		<p>科目情報を選択または学生情報を入力して
 			検索ボタンをクリックしてください</p>
+			
+			
+		<c:choose>
+  <c:when test="${students.size() > 0}">
+    <div>検索結果 : ${students.size()}件</div>
+    <table class="table table-hover">
+      <tr>
+        <th>入学年度</th>
+        <th>クラス</th>
+        <th>学生番号</th>
+        <th>氏名</th>
+        <th>点数</th>
+
+        <th></th>
+        <th></th>
+      </tr>
+    </table>
+    <c:forEach var="student" items="${students}">
+      <tr>
+        <td>${student.entYear}</td>
+        <td>${student.classNum}</td>
+        <td>${student.no}</td>
+        <td>${student.name}</td>
+        <td class="text-center">
+          <%-- 在学フラグがたっている場合「○」 それ以外は「×」を表示 --%>
+          <c:choose>
+            <c:when test="${student.isAttend()}">
+              <a id="point">
+						点数<br>
+							<input type="text" name="point"size="30" placeholder="学生番号を入力してください">
+						</a>
+            </c:when>
+            <c:otherwise>
+              <a id="point">
+						点数<br>
+							<input type="text" name="point"size="30" placeholder="学生番号を入力してください">
+						</a>
+            </c:otherwise>
+          </c:choose>
+        </td>
+        <td><a href="TestRegistExecute.action">登録して終了</a></td>
+      </tr>
+    </c:forEach>
+  </c:when>
+  <c:otherwise>
+    <div>成績情報が存在しませんでした</div>
+  </c:otherwise>
+</c:choose>
+
+</section>
+</c:param>
+</c:import>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 
 
 
