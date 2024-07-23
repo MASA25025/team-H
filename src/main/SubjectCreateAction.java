@@ -28,4 +28,5 @@ public class SubjectCreateAction extends Action{
 	        request.getRequestDispatcher("subject_regist.jsp").forward(request, response);
 //	        科目管理一覧画面へ続く
 	}
+
 }
