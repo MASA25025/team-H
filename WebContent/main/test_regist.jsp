@@ -10,30 +10,30 @@
 	<h1 id="menu-header">成績管理</h1>
 
 
-			<form action="TestRegistAction" method="get">
+			<form action="TestRegist.action" method="get">
 
 				<div id="form">
 					<a class="form_elm">
 					入学年度<br>
 						<select name="ent_year">
-						<c:forEach var="student" items="${ student }">
-							<option value="year">${ student.entyear }</option>
+						<c:forEach var="year" items="${ ent_year_set }">
+							<option value="year">${ year }</option>
 						</c:forEach>
 						</select>
 					</a>
 					<a class="form_elm">
 					クラス<br>
 						<select name="class_num">
-						<c:forEach var="classnum" items="${ ClassNum }">
-							<option value="num">${ ClassNum.class_num }</option>
+						<c:forEach var="classnum" items="${ class_num }">
+							<option value="num">${ classnum }</option>
 						</c:forEach>
 						</select>
 					</a>
 					<a id="subject">
 					科目<br>
 						<select name="subject_name">
-						<c:forEach var="subject" items="${ Subject }">
-							<option value="subject.cd">${ Subject.name }</option>
+						<c:forEach var="subject" items="${ subject }">
+							<option value="${ subject.cd }">${ subject.name }</option>
 						</c:forEach>
 						</select>
 					</a>
@@ -72,7 +72,9 @@
         <td>${Test.classNum}</td>
         <td>${Test.no}</td>
         <td>${Test.name}</td>
-        <td>${Test.point}</td>
+        <td><a id="point">
+							<input type="text" name="point"size="30" placeholder="${Test.point}">
+						</a></td>
 
         <td><a href="TestRegistExecute.action">登録して終了</a></td>
       </tr>

@@ -60,6 +60,8 @@ public class TestRegistAction extends Action{
 
 				Teacher teacher = (Teacher)session.getAttribute("user");
 				Test test = (Test)session.getAttribute("user");
+				System.out.print("エラー確認" + test);
+
 
 				int ent_year = Integer.parseInt(request.getParameter("ent_year"));
 				String class_num = request.getParameter("class_num");

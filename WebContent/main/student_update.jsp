@@ -85,15 +85,15 @@
                 <div class="form-group">
                     <label>クラス
                         <select name="class_num">
-                            <option value="">-------</option>
+                            <option value="0"></option>
                             <c:forEach var="num" items="${class_num_set}">
-                                <option value="${num}" <c:if test="${num ==class_num}">selected</c:if>>${num}</option>
+                                <option value="${num}" <c:if test="${num ==students.getClassNum()}">selected</c:if>>${num}</option>
                             </c:forEach>
                         </select>
                     </label>
                 </div>
                     <label>在学中
-						<input type="checkbox" name="is_attend" <c:if test="${!empty is_attend}">checked</c:if> />
+						<input type="checkbox" name="is_attend" value="t" <c:if test="${!empty students.isAttend()}">checked</c:if> />
 					</label>
 
                 <div class="form-actions">

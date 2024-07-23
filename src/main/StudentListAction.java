@@ -26,7 +26,7 @@ public class StudentListAction extends Action {
 		String classNum = "";
 		String isAttendStr = "";
 		int entYear = 0;
-		boolean isAttend = false;
+		boolean isAttend= false;
 		List<Student> students = null;
 		LocalDate todaysDate = LocalDate.now();
 		int year = todaysDate.getYear();
@@ -37,6 +37,18 @@ public class StudentListAction extends Action {
 		entYearStr = req.getParameter("f1");
 		classNum = req.getParameter("f2");
 		isAttendStr = req.getParameter("f3");
+
+		if (entYearStr != null){
+			entYear = Integer.parseInt(entYearStr);
+		}
+		req.setAttribute("f1", entYear);
+		req.setAttribute("f2", classNum);
+//		在学フラグの判定
+		if(isAttendStr !=null){
+			isAttend = true;
+			req.setAttribute("f3", isAttendStr);
+		}
+
 //		ログインユーザーの学校コードをもとにクラス番号の一覧を取得
 		List<String> list = classNumDao.Filter(teacher.getSchool());
 
@@ -56,9 +68,7 @@ public class StudentListAction extends Action {
 //			学生情報を全取得
 			students = sDao.filter(teacher.getSchool(), isAttend);
 		}
-		if (entYearStr != null){
-			entYear = Integer.parseInt(entYearStr);
-		}
+
 //		入学年度をInt型にし、プルダウン用にリストをつくる
 		List<Integer> entYearSet = new ArrayList<>();
 //		10年前から1年後までの年をリストに追加
@@ -66,13 +76,6 @@ public class StudentListAction extends Action {
 			entYearSet.add(i);
 		}
 
-		req.setAttribute("f1", entYear);
-		req.setAttribute("f2", classNum);
-//		在学フラグの判定
-		if(isAttendStr !=null){
-			isAttend = true;
-			req.setAttribute("f3", isAttendStr);
-		}
 //		リクエストに学生リストとデータをセット
 		req.setAttribute("students", students);
 		req.setAttribute("class_num_set", list);

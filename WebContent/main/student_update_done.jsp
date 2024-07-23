@@ -13,7 +13,7 @@
 		変更が完了しました
 	</div>
 	<div id="link">
-		<a href="student_list.jsp" class="link" style="left:;">学生一覧</a>
+		<a href="../main/StudentList.action" class="link" style="left:;">学生一覧</a>
 	</div>
 	<style>
 	#menu-header{
