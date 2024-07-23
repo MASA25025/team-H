@@ -8,7 +8,7 @@
 
 
 	<h1 id="menu-header">成績参照</h1>
-			<form action="" method="get">
+			<form action="TestListSubjectExecute.action" method="get">
 			<div id ="form_all">
 				<div class="form1">
 					<a class="form_title">科目情報</a>
@@ -16,16 +16,28 @@
 					<a class="form_elm">
 					入学年度<br>
 						<select name="s1">
+						<option value="0">
+						<c:forEach var="year" items="${ent_year_set}">
+            			<%-- 現在のyearと選択されていたf1が一致していた場合selectedを追記 --%>
+            			<option value="${year}" <c:if test="${year==f1}">selected</c:if>>${year}</option>
+          				</c:forEach>
+          				</option>
 						</select>
 					</a>
 					<a class="form_elm">
 					クラス<br>
 						<select name="s2">
+						<option>
+						<c:forEach var="s2" items="${Pull_2}">
+						</c:forEach>
+						</option>
 						</select>
+
 					</a>
 					<a id="subject">
 					科目<br>
-						<select name="s3" >
+						<select name="s3">
+						<option>${Pull_3.Name }</option>
 						</select>
 					</a>
 					<a class="form_elm">

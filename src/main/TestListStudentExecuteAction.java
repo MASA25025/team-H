@@ -1,5 +1,7 @@
 package main;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,13 +29,19 @@ public class TestListStudentExecuteAction extends Action{
 		studentlist = tsDao.filter(noStr);
 		student = sDao.get(noStr);
 
-		System.out.print(noStr);
-		System.out.print(studentlist);
-		System.out.print(student);
-
 		req.setAttribute("f1", null);
 		req.setAttribute("student", student);
 		req.setAttribute("studentList", studentlist);
+
+		LocalDate todaysDate = LocalDate.now();
+		int year = todaysDate.getYear();
+//		入学年度をInt型にし、プルダウン用にリストをつくる
+		List<Integer> entYearSet = new ArrayList<>();
+//		10年前から1年後までの年をリストに追加
+		for (int i = year - 10; i < year + 1; i++){
+			entYearSet.add(i);
+		}
+		req.setAttribute("s1", entYearSet);
 
 		req.getRequestDispatcher("test_list.jsp").forward(req, resp);
 

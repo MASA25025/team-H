@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.School;
+import bean.Subject;
 import bean.Teacher;
 import bean.TestListSubject;
 import dao.ClassNumDao;
 import dao.DAO;
+import dao.SubjectDao;
 import dao.TestListSubjectDao;
 
 public class TestListSubjectExecuteAction extends DAO{
@@ -51,11 +53,12 @@ public class TestListSubjectExecuteAction extends DAO{
 		}
 		ClassNumDao classNumDao = new ClassNumDao();
 		List<String> Pull_2 = classNumDao.Filter(teacher.getSchool());
-		List<String> Pull_3 =
+		SubjectDao subject = new SubjectDao();
+		List<Subject> Pull_3 = subject.Filter(teacher.getSchool());
 
 		req.setAttribute("s1", entYearSet);
 		req.setAttribute("s2", Pull_2);
-		req.setAttribute("s3", );
+		req.setAttribute("s3", Pull_3);
 
 		req.setAttribute("subjects", TLsubject);
 
