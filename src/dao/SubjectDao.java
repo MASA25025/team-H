@@ -11,7 +11,7 @@ import bean.School;
 import bean.Subject;
 
 public class SubjectDao extends DAO{
-	public Subject get(String no)throws  Exception{
+	public Subject get(String cd)throws  Exception{
 		Subject subject = new Subject();
 
 		Connection connection = getConnection();
