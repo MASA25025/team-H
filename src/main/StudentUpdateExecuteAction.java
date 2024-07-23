@@ -23,7 +23,16 @@ public class StudentUpdateExecuteAction extends Action {
         String classNum = req.getParameter("class_num");
         String isAttendStr = req.getParameter("is_attend");
         int entYear = Integer.parseInt(entYearStr);
-        boolean isAttend = Boolean.parseBoolean(isAttendStr);
+        boolean isAttend = "t".equals(isAttendStr);
+
+        // isAttendingがtrueかfalseに基づいて処理を行う
+        if (isAttend) {
+            // チェックボックスがチェックされている場合の処理
+            resp.getWriter().write("true");
+        } else {
+            // チェックボックスがチェックされていない場合の処理
+            resp.getWriter().write("false");
+        }
 
 
         // Studentインスタンスの作成

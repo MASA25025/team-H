@@ -103,7 +103,7 @@ public class StudentDao extends DAO {
 //		SQL文の在学フラッグ条件
 		String conditionIsAttend = "";
 		if(isAttend){
-			conditionIsAttend = "and_is_attend = true";
+			conditionIsAttend = "and is_attend = true ";
 		}
 
 		try{
@@ -155,7 +155,7 @@ public class StudentDao extends DAO {
 		String conditionIsAttend="";
 //		trueだった場合
 		if (isAttend) {
-			conditionIsAttend = "and is_attend=true";
+			conditionIsAttend = "and is_attend=true ";
 		}
 
 		try{
@@ -199,7 +199,7 @@ public class StudentDao extends DAO {
 
 		ResultSet rSet = null;
 
-		String order = "order by no asc";
+		String order = " order by no asc";
 
 //		SQL文の在学フラグ
 		String conditionIsAttend="";
@@ -211,6 +211,7 @@ public class StudentDao extends DAO {
 		try{
 			statement = connection.prepareStatement(baseSql + conditionIsAttend + order);
 			statement.setString(1, school.getCd());
+//			statement.setBoolean(2, isAttend);
 			rSet = statement.executeQuery();
 			list = postFilter(rSet, school);
 		}catch (Exception e) {
