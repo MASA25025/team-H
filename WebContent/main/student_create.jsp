@@ -50,19 +50,18 @@
 
         <body>
             <h2>学生情報登録</h2>
-            <form id="registrationForm" action="StudentCreateExecute.action" method="post" onsubmit="return validateForm()">
+            <form action="StudentCreateExecute.action" method="post">
                 <label class="form-label" for="student-f1-select">入学年度</label>
-        			<select class="form-select" id="student-f1-select" name="ent_year">
-          			<option value="0">--------------------</option>
-			          <c:forEach var="year" items="${ent_year_set}">
-			            <%-- 現在のyearと選択されていたf1が一致していた場合selectedを追記 --%>
-			            <option value="${year}" <c:if test="${year==ent_year}">selected</c:if>>${year}</option>
-			          </c:forEach>
-        			</select>
+                <select class="form-select" id="student-f1-select" name="ent_Year">
+                    <option value="">--------------------</option>
+                    <c:forEach var="year" items="${ent_year_set}">
+                        <option value="${year}">${year}</option>
+                    </c:forEach>
+                </select>
                 <div id="entryYearError" class="error"></div>
 
                 <label for="student_number">学生番号</label>
-                <input type="text" id="student_number" name="studentNumber" required placeholder="学生番号を入力してください">
+                <input type="text" id="student_number" name="no" required placeholder="学生番号を入力してください">
                 <div id="studentNumberError" class="error"></div>
 
                 <label for="name">氏名</label>
@@ -70,13 +69,14 @@
                 <div id="nameError" class="error"></div>
 
                 <label class="form-label" for="student-f2-select">クラス</label>
-		        <select class="form-select" id="student-f2-select" name="class_num">
-		          <option value="0"></option>
-		          <c:forEach var="num" items="${class_num_set}">
-		            <%-- 現在のnumと選択されていたf2が一致していた場合selectedを追記 --%>
-		            <option value="${num}" <c:if test="${num==class_num}">selected</c:if>>${num}</option>
-		          </c:forEach>
-		        </select>
+                <select class="form-select" id="student-f2-select" name="class_num">
+                    <option value="">--------------------</option>
+                    <c:forEach var="num" items="${class_num_set}">
+                        <option value="${num}">${num}</option>
+                    </c:forEach>
+                </select>
+                <div id="classNumberError" class="error"></div>
+
                 <button type="submit">登録して終了</button>
             </form>
             <a href="menu.jsp">戻る</a>

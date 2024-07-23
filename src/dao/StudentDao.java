@@ -263,7 +263,7 @@ public class StudentDao extends DAO {
 //					学生が存在した場合
 //					プリペアードステートメントにUPDATE文をセット
 					statement = connection.prepareStatement(
-							"update student set name =?, ent_year =?, class_num=?, is_attend=?, where no=?");
+							"update student set name =?, ent_year =?, class_num=?, is_attend=? where no=?");
 					statement.setString(1, student.getName());
 					statement.setInt(2, student.getEntYear());
 					statement.setString(3, student.getClassNum());
