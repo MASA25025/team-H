@@ -8,134 +8,73 @@
 
 
 	<h1 id="menu-header">成績参照</h1>
-
-
-			<form action="update" method="get">
+			<form action="" method="get">
 			<div id ="form_all">
 				<div class="form1">
 					<a class="form_title">科目情報</a>
 
 					<a class="form_elm">
 					入学年度<br>
-						<select name="ent_year">
+						<select name="s1">
 						</select>
 					</a>
 					<a class="form_elm">
 					クラス<br>
-						<select name="class_num">
+						<select name="s2">
 						</select>
 					</a>
 					<a id="subject">
 					科目<br>
-						<select name="subject_name">
+						<select name="s3" >
 						</select>
 					</a>
 					<a class="form_elm">
 					<input id="search" type="submit" value="検索">
 					</a>
 				</div>
+			</div>
+			</form>
+
 				<div class="ppp"><hr></div>
-				<div class ="form2">
+
+			<form action ="TestListStudentExecute.action" method="post">
+			<div class ="form2">
 					<a class="form_title">学生情報</a>
 					<a id="subject">
 						学生番号<br>
-							<input type="text" name="no"size="30" placeholder="学生番号を入力してください">
+						<input type="text" name="f1"size="30" placeholder="学生番号を入力してください">
 						</a>
 						<a class="form_elm">
 						<input id="search" type="submit" value="検索">
 						</a>
-				</div>
 			</div>
 			</form>
 		<p>科目情報を選択または学生情報を入力して
 			検索ボタンをクリックしてください</p>
 
 
-		<c:choose>
-  <c:when test="${students.size() > 0}">
-    <div>検索結果 : ${students.size()}件</div>
+<c:choose>
+  <c:when test="${studentList.size() > 0}">
+    <div>氏名：${student.name}(${student.no}) </div>
     <table class="table table-hover">
       <tr>
-        <th>入学年度</th>
-        <th>クラス</th>
-        <th>学生番号</th>
-        <th>1回</th>
-        <th>２回</th>
-
-        <th></th>
-        <th></th>
+        <th>科目</th>
+        <th>科目コード</th>
+        <th>回数</th>
+        <th>得点</th>
       </tr>
-    </table>
-    <c:forEach var="student" items="${students}">
+
+    <c:forEach var="stuTestList" items="${studentList}">
       <tr>
-        <td>${student.entYear}</td>
-        <td>${student.classNum}</td>
-        <td>${student.no}</td>
-        <td>${student.name}</td>
-        <td class="text-center">
-          <%-- 在学フラグがたっている場合「○」 それ以外は「×」を表示 --%>
-          <c:choose>
-            <c:when test="${student.isAttend()}">
-              <a id="point">
-						点数<br>
-							<input type="text" name="point"size="30" placeholder="学生番号を入力してください">
-						</a>
-            </c:when>
-            <c:otherwise>
-              <a id="point">
-						点数<br>
-							<input type="text" name="point"size="30" placeholder="学生番号を入力してください">
-						</a>
-            </c:otherwise>
-          </c:choose>
-        </td>
-        <td><a href="TestRegistExecute.action">登録して終了</a></td>
+        <td>${stuTestList.subjectName}</td>
+        <td>${stuTestList.subjectCd}</td>
+        <td>${stuTestList.num}</td>
+        <td>${stuTestList.point}</td>
       </tr>
     </c:forEach>
+    </table>
     </c:when>
 
-    <c:when test="${students.size() > 0}">
-    <div>検索結果 : ${students.size()}件</div>
-    <table class="table table-hover">
-      <tr>
-        <th>入学年度</th>
-        <th>クラス</th>
-        <th>学生番号</th>
-        <th>氏名</th>
-        <th>点数</th>
-
-        <th></th>
-        <th></th>
-      </tr>
-    </table>
-    <c:forEach var="student" items="${students}">
-      <tr>
-        <td>${student.entYear}</td>
-        <td>${student.classNum}</td>
-        <td>${student.no}</td>
-        <td>${student.name}</td>
-        <td class="text-center">
-          <%-- 在学フラグがたっている場合「○」 それ以外は「×」を表示 --%>
-          <c:choose>
-            <c:when test="${student.isAttend()}">
-              <a id="point">
-						点数<br>
-							<input type="text" name="point"size="30" placeholder="学生番号を入力してください">
-						</a>
-            </c:when>
-            <c:otherwise>
-              <a id="point">
-						点数<br>
-							<input type="text" name="point"size="30" placeholder="学生番号を入力してください">
-						</a>
-            </c:otherwise>
-          </c:choose>
-        </td>
-        <td><a href="TestRegistExecute.action">登録して終了</a></td>
-      </tr>
-    </c:forEach>
-
-  </c:when>
   <c:otherwise>
     <div>成績情報が存在しませんでした</div>
   </c:otherwise>

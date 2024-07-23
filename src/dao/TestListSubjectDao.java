@@ -54,16 +54,16 @@ public class TestListSubjectDao extends DAO{
 			statement.setString(3, subject_cd);
 			statement.setString(4, school_cd);
 
-			TestListSubject listSubject = new TestListSubject();
+
 			ResultSet rSet = statement.executeQuery();
 
 			while (rSet.next()) {
-
+				TestListSubject listSubject = new TestListSubject();
 				listSubject.setStudentNo(rSet.getString("studentNo"));
 				listSubject.setStudentName(rSet.getString("stundetName"));
 				listSubject.setClassNum(rSet.getString("classNum"));
-				listSubject.setPoint01(rSet.getString("point_no01"));
-				listSubject.setPoint02(rSet.getString("point_no02"));
+				listSubject.setPoint01(rSet.getString("point01"));
+				listSubject.setPoint02(rSet.getString("point02"));
 				listSubject.setEntYear(rSet.getInt("entYear"));
 
 			}
