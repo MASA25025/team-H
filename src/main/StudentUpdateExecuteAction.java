@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.School;
 import bean.Student;
 import bean.Teacher;
 import dao.StudentDao;
@@ -12,43 +11,50 @@ import tool.Action;
 
 public class StudentUpdateExecuteAction extends Action {
 
-	@Override
-	public void execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		HttpSession session = req.getSession();
-		Teacher teacher = (Teacher)session.getAttribute("user");
+    @Override
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        HttpSession session = req.getSession();
+        Teacher teacher = (Teacher) session.getAttribute("user");
+
+        // リクエストパラメータを取得
+        String no = req.getParameter("no");
+        String name = req.getParameter("name");
+        String entYearStr = req.getParameter("ent_year");
+        String classNum = req.getParameter("class_num");
+        String isAttendStr = req.getParameter("is_attend");
+        int entYear = Integer.parseInt(entYearStr);
+        boolean isAttend = Boolean.parseBoolean(isAttendStr);
+
+        System.out.print("変更"+no);
+        System.out.print("変更"+name);
+        System.out.print("変更"+entYear);
+        System.out.print("変更"+classNum);
+        System.out.print("変更"+isAttend);
 
 
-		 String no = req.getParameter("no");
-	     String name = req.getParameter("name");
-	     int entYear = Integer.parseInt(req.getParameter("entYear"));
-	     String classNum = req.getParameter("classNum");
-	     boolean isAttend = Boolean.parseBoolean(req.getParameter("isAttend"));
-	     String schoolCd = req.getParameter("schoolCd");
+        // Studentインスタンスの作成
+        Student student = new Student();
+        student.setNo(no);
+        student.setName(name);
+        student.setEntYear(entYear);
+        student.setClassNum(classNum);
+        student.setAttend(isAttend);
+        student.setSchool(teacher.getSchool());
 
-	     School school = new School();
-	     school.setCd(schoolCd);
+        // StudentDaoを使用して学生情報を保存
+        StudentDao studentDao = new StudentDao();
+        boolean result = studentDao.save(student);
 
-         // 学生オブジェクトを作成
-         Student student = new Student();
-         student.setNo(no);
-         student.setName(name);
-         student.setEntYear(entYear);
-         student.setClassNum(classNum);
-         student.setAttend(isAttend);
-         student.setSchool(school);
+        if (result) {
+            // 成功メッセージをリクエストに設定
+            req.setAttribute("message", "学生情報が更新されました。");
+            req.getRequestDispatcher("student_update_done.jsp").forward(req, resp);
+        } else {
+            // エラーメッセージをリクエストに設定
+            req.setAttribute("error", "学生情報の更新に失敗しました。");
+        }
 
-	     StudentDao studentDao = new StudentDao();
-
-	     boolean students = studentDao.save(student);
-
-            if (students = true) {
-            	req.getRequestDispatcher("student_update_done.jsp").forward(req, resp);
-            } else {
-                req.setAttribute("message", "学生情報の更新に失敗しました。");
-            }
-
-	     req.getRequestDispatcher("student_update_done.jsp").forward(req, resp);
-
-	}
-
+        // JSPページにフォワード
+        req.getRequestDispatcher("student_update_done.jsp").forward(req, resp);
+    }
 }

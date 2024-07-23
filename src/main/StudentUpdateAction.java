@@ -1,8 +1,6 @@
 package main;
 
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,26 +21,21 @@ public class StudentUpdateAction extends Action {
 
 		String no = req.getParameter("no");
 		Student students = null;
-		LocalDate todaysDate = LocalDate.now();
-		int year = todaysDate.getYear();
 		StudentDao sDao = new StudentDao();
 		ClassNumDao classNumDao = new ClassNumDao();
+		System.out.print("学生番号"+no);
 
 		List<String> list = classNumDao.Filter(teacher.getSchool());
 
 		students = sDao.get(no);
-
-//		入学年度をInt型にし、プルダウン用にリストをつくる
-		List<Integer> entYearSet = new ArrayList<>();
-//		10年前から1年後までの年をリストに追加
-		for (int i = year - 10; i < year + 1; i++){
-			entYearSet.add(i);
-		}
+		System.out.print("学生名前"+students.getName());
+		System.out.print("入学年度"+students.getEntYear());
+		System.out.print("学生のクラス"+students.getClassNum());
+		System.out.print("学校番号"+students.getSchool().getCd());
 
 		req.setAttribute("students", students);
 		req.setAttribute("class_num_set", list);
-		req.setAttribute("ent_year_set", entYearSet);
 
-		req.getRequestDispatcher("sutudent_update.jsp").forward(req, resp);
+		req.getRequestDispatcher("student_update.jsp").forward(req, resp);
 	}
 }
