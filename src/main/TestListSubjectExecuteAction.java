@@ -1,5 +1,7 @@
 package main;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import bean.School;
 import bean.Teacher;
 import bean.TestListSubject;
+import dao.ClassNumDao;
 import dao.DAO;
 import dao.TestListSubjectDao;
 
@@ -28,16 +31,31 @@ public class TestListSubjectExecuteAction extends DAO{
 		String Subject_cd = "";
 
 		try{
-		entYearStr = req.getParameter("f1");
+		entYearStr = req.getParameter("s1");
 		entYear = Integer.parseInt(entYearStr);
-		classNum = req.getParameter("f2");
-		Subject_cd = req.getParameter("f3");
+		classNum = req.getParameter("s2");
+		Subject_cd = req.getParameter("s3");
 
 		TLsubject = TLSdao.filter(entYear, classNum, Subject_cd, school_cd);
 
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
+		LocalDate todaysDate = LocalDate.now();
+		int year = todaysDate.getYear();
+//		入学年度をInt型にし、プルダウン用にリストをつくる
+		List<Integer> entYearSet = new ArrayList<>();
+//		10年前から1年後までの年をリストに追加
+		for (int i = year - 10; i < year + 1; i++){
+			entYearSet.add(i);
+		}
+		ClassNumDao classNumDao = new ClassNumDao();
+		List<String> Pull_2 = classNumDao.Filter(teacher.getSchool());
+		List<String> Pull_3 =
+
+		req.setAttribute("s1", entYearSet);
+		req.setAttribute("s2", Pull_2);
+		req.setAttribute("s3", );
 
 		req.setAttribute("subjects", TLsubject);
 
