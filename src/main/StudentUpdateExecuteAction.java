@@ -25,12 +25,6 @@ public class StudentUpdateExecuteAction extends Action {
         int entYear = Integer.parseInt(entYearStr);
         boolean isAttend = Boolean.parseBoolean(isAttendStr);
 
-        System.out.print("変更"+no);
-        System.out.print("変更"+name);
-        System.out.print("変更"+entYear);
-        System.out.print("変更"+classNum);
-        System.out.print("変更"+isAttend);
-
 
         // Studentインスタンスの作成
         Student student = new Student();
