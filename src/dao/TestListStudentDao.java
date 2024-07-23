@@ -11,7 +11,7 @@ import bean.TestListStudent;
 
 public class TestListStudentDao extends DAO{
 
-	private String baleSql = "select";
+//	private String baleSql = "select";
 
 	public List<TestListStudent> postFilter(ResultSet rSet) {
 		return null;
@@ -22,8 +22,8 @@ public class TestListStudentDao extends DAO{
 
 		Connection connection = getConnection();
 		PreparedStatement statement = connection.prepareStatement(
-				"select s.subjectName, "
-				+ "s.cd, t.num, t.point"
+				"select s.Name, "
+				+ "s.cd, t.no, t.point"
 				+"from subject  s join test t on  s.cd = t.subject_cd"
 				+"where student_no = ?");
 		try{
