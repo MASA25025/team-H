@@ -29,6 +29,7 @@ public class TestRegistAction extends Action{
 
 			Teacher teacher = (Teacher)session.getAttribute("user");
 
+
 //			入学年度をInt型にし、プルダウン用にリストをつくる
 			List<Integer> entYearSet = new ArrayList<>();
 //			10年前から1年後までの年をリストに追加
@@ -43,6 +44,7 @@ public class TestRegistAction extends Action{
 //	        SubjectDAO
 	        SubjectDao SJdao=new SubjectDao();
 	        List<Subject> Subject =SJdao.Filter(teacher.getSchool());
+
 
 //	        ここでJSPで必要なものをsetAttribute
 	        request.setAttribute("class_num", ClassNum);
@@ -59,18 +61,26 @@ public class TestRegistAction extends Action{
 				HttpSession session=request.getSession();
 
 				Teacher teacher = (Teacher)session.getAttribute("user");
-				Test test = (Test)session.getAttribute("user");
-				System.out.print("エラー確認" + test);
 
-
-				int ent_year = Integer.parseInt(request.getParameter("ent_year"));
+				int ent_year = Integer.parseInt(request.getParameter("entyear"));
 				String class_num = request.getParameter("class_num");
-				int num = Integer.parseInt(request.getParameter("sub_cou"));
+				String subject = request.getParameter("subject_name");
+				int num = Integer.parseInt(request.getParameter("no"));
+
+				System.out.print(ent_year);
+
+				SubjectDao SJdao=new SubjectDao();
+		        Subject Subject =SJdao.get(subject);
 
 				TestDao Testdao=new TestDao();
-				List<Test> Test=Testdao.filter(ent_year,class_num,test.getSubject(),num,teacher.getSchool());
+				List<Test> Test=Testdao.filter(ent_year,class_num,Subject,num,teacher.getSchool());
+
+				System.out.print(Test);
 
 				request.setAttribute("Test", Test);
+				request.setAttribute("Subject", Subject);
+				request.setAttribute("entyear", ent_year);
+
 				request.getRequestDispatcher("test_regist.jsp").forward(request, response);
 	}
 }
