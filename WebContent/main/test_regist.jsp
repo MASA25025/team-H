@@ -31,7 +31,7 @@
 					</a>
 					<a id="subject">
 					科目<br>
-						<select name="subject_name">
+						<select name="subject_cd">
 						<c:forEach var="subject" items="${ subject }">
 							<option value="${ subject.cd }">${ subject.name }</option>
 						</c:forEach>

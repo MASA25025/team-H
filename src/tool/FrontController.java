@@ -13,9 +13,10 @@ public class FrontController extends HttpServlet{
 			)throws ServletException, IOException {
 
 		try{
+			System.out.println("FrontController実行");
 			String path=req.getServletPath().substring(1);
 			String name=path.replace(".a", "A").replace('/', '.');
-
+			System.out.println("name：" + name);
 			Action action=(Action)Class.forName(name).getDeclaredConstructor().newInstance();
 
 			action.execute(req, resp);

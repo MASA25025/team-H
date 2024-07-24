@@ -14,7 +14,7 @@ import bean.Subject;
 import bean.Test;
 
 public class TestDao extends DAO {
-    private String baseSql = "SELECT * FROM test WHERE school_cd = ?";
+    private String baseSql = "SELECT * FROM test join student on test.student_no = student.no WHERE test.school_cd = ?";
 
     public Test get(Student student, Subject subject, School school, int no) throws Exception {
         Test test = new Test();
@@ -79,6 +79,7 @@ public class TestDao extends DAO {
 
             student.setNo(rSet.getString("student_no"));
             student.setSchool(school);
+            student.setEntYear(rSet.getInt("entYear"));
             subject.setCd(rSet.getString("subject_cd"));
             subject.setSchool(school);
 
@@ -97,8 +98,9 @@ public class TestDao extends DAO {
 
     public List<Test> filter(int entYear, String classNum, Subject subject, int num, School school) throws Exception {
         List<Test> list = new ArrayList<>();
+        System.out.print("年度"+entYear);
 
-        String sql = baseSql + " AND ent_year = ? AND class_num = ? AND subject_cd = ? AND no = ? ORDER BY student_no ASC";
+        String sql = baseSql + " AND ent_year = ? AND test.class_num = ? AND subject_cd = ? AND test.no = ? ORDER BY test.student_no ASC";
 
         Connection connection = getConnection();
 
@@ -112,6 +114,10 @@ public class TestDao extends DAO {
             statement.setString(3, classNum);
             statement.setString(4, subject.getCd());
             statement.setInt(5, num);
+
+            System.out.print("粘土"+entYear);
+
+
 
             ResultSet rSet = statement.executeQuery();
             list = postFilter(rSet, school);
