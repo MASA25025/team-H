@@ -34,9 +34,6 @@
                 border: 1px solid #ccc;
                 border-radius: 5px;
             }
-            .form-group input[readonly] {
-                background-color: #e9ecef;
-            }
 
             .form-actions {
                 display: flex;

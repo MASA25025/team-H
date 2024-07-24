@@ -17,7 +17,7 @@
 					入学年度<br>
 						<select name="ent_year">
 						<c:forEach var="year" items="${ ent_year_set }">
-							<option value="year">${ year }</option>
+							<option value="${year}">${ year }</option>
 						</c:forEach>
 						</select>
 					</a>
@@ -25,7 +25,7 @@
 					クラス<br>
 						<select name="class_num">
 						<c:forEach var="classnum" items="${ class_num }">
-							<option value="num">${ classnum }</option>
+							<option value="${classnum}">${ classnum }</option>
 						</c:forEach>
 						</select>
 					</a>
@@ -40,9 +40,8 @@
 					<a class="form_elm">
 					回数<br>
 						<select name="no">
-						<c:forEach var="student" items="${ student }">
-							<option value="num">${ student.no }</option>
-						</c:forEach>
+							<option value="1">1</option>
+							<option value="2">2</option>
 						</select>
 					</a>
 					<a class="form_elm">
@@ -52,8 +51,8 @@
 				</form>
 
 				<c:choose>
-  <c:when test="${Test.size() > 0}">
-    <div>検索結果 : ${Test.size()}件</div>
+<c:when test="${Test.size() > 0}">
+    <div>科目 : ${Subject.name}</div>
     <table class="table table-hover">
       <tr>
         <th>入学年度</th>
@@ -68,8 +67,8 @@
     </table>
     <c:forEach var="test" items="${Test}">
       <tr>
-        <td>${Test.entYear}</td>
-        <td>${Test.classNum}</td>
+        <td>${Test.entyear}</td>
+        <td>${Test.classnum}</td>
         <td>${Test.no}</td>
         <td>${Test.name}</td>
         <td><a id="point">
