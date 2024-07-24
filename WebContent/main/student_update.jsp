@@ -34,6 +34,7 @@
                 border: 1px solid #ccc;
                 border-radius: 5px;
             }
+
             .form-actions {
                 display: flex;
                 justify-content: space-between;
