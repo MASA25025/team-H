@@ -11,7 +11,7 @@ import bean.School;
 import bean.Subject;
 
 public class SubjectDao extends DAO{
-	public Subject get(String cd)throws  Exception{
+	public Subject get(String cd, School school)throws  Exception{
 		Subject subject = new Subject();
 
 		Connection connection = getConnection();
@@ -56,7 +56,7 @@ public class SubjectDao extends DAO{
 		return subject;
 	}
 
-		public List<Subject> Filter(School school) throws Exception {
+		public List<Subject> filter(School school) throws Exception {
 			List<Subject> list=new ArrayList<>();
 			Connection con=getConnection();
 
