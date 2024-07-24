@@ -136,7 +136,6 @@ public class SubjectDao extends DAO{
 //				実行件数が0件の場合
 				return false;
 			}
-
 	}
 
 }
