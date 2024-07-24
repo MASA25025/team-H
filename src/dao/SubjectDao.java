@@ -85,7 +85,7 @@ public class SubjectDao extends DAO{
 			int count = 0;
 
 			try{
-				Subject old = get(subject.getCd());
+				Subject old = get(subject.getCd(), subject.getSchool());
 				if ( old==null ){
 //					学生が存在しなかった場合
 //					プリペアードステートメントにINSERT文をセット
