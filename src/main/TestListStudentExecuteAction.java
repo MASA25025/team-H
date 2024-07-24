@@ -6,10 +6,15 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.Student;
+import bean.Subject;
+import bean.Teacher;
 import bean.TestListStudent;
+import dao.ClassNumDao;
 import dao.StudentDao;
+import dao.SubjectDao;
 import dao.TestListStudentDao;
 import tool.Action;
 
@@ -18,7 +23,8 @@ public class TestListStudentExecuteAction extends Action{
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		// TODO 自動生成されたメソッド・スタブ
-//		HttpSession session = req.getSession();
+		HttpSession session = req.getSession();
+		Teacher teacher = (Teacher)session.getAttribute("user");
 		String noStr = "";
 		List<TestListStudent> studentlist = null;
 		TestListStudentDao tsDao = new TestListStudentDao();
@@ -41,7 +47,21 @@ public class TestListStudentExecuteAction extends Action{
 		for (int i = year - 10; i < year + 1; i++){
 			entYearSet.add(i);
 		}
-		req.setAttribute("s1", entYearSet);
+
+//        ClassNumDAO
+        ClassNumDao dao=new ClassNumDao();
+        List<String> ClassNum=dao.Filter(teacher.getSchool());
+
+//        SubjectDAO
+        SubjectDao SJdao=new SubjectDao();
+        List<Subject> Subject =SJdao.filter(teacher.getSchool());
+
+
+//      ここでJSPで必要なものをsetAttribute
+        req.setAttribute("ent_year_set", entYearSet);
+        req.setAttribute("class_num", ClassNum);
+        req.setAttribute("subject", Subject);
+
 
 		req.getRequestDispatcher("test_list.jsp").forward(req, resp);
 

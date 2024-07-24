@@ -13,11 +13,11 @@ import bean.Subject;
 import bean.Teacher;
 import bean.TestListSubject;
 import dao.ClassNumDao;
-import dao.DAO;
 import dao.SubjectDao;
 import dao.TestListSubjectDao;
+import tool.Action;
 
-public class TestListSubjectExecuteAction extends DAO{
+public class TestListSubjectExecuteAction extends Action{
 
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		HttpSession session = req.getSession();
@@ -25,24 +25,16 @@ public class TestListSubjectExecuteAction extends DAO{
 
 		List<TestListSubject> TLsubject = null;
 		TestListSubjectDao TLSdao = new TestListSubjectDao();
+
+
 		School school = teacher.getSchool();
 		String school_cd = school.getCd();
 		String entYearStr = "";
 		int	entYear =0;
 		String classNum = "";
 		String Subject_cd = "";
+		String SubjectName = "";
 
-		try{
-		entYearStr = req.getParameter("s1");
-		entYear = Integer.parseInt(entYearStr);
-		classNum = req.getParameter("s2");
-		Subject_cd = req.getParameter("s3");
-
-		TLsubject = TLSdao.filter(entYear, classNum, Subject_cd, school_cd);
-
-		}catch (Exception e) {
-			// TODO: handle exception
-		}
 		LocalDate todaysDate = LocalDate.now();
 		int year = todaysDate.getYear();
 //		入学年度をInt型にし、プルダウン用にリストをつくる
@@ -51,15 +43,40 @@ public class TestListSubjectExecuteAction extends DAO{
 		for (int i = year - 10; i < year + 1; i++){
 			entYearSet.add(i);
 		}
-		ClassNumDao classNumDao = new ClassNumDao();
-		List<String> Pull_2 = classNumDao.Filter(teacher.getSchool());
-		SubjectDao subject = new SubjectDao();
-		List<Subject> Pull_3 = subject.Filter(teacher.getSchool());
 
-		req.setAttribute("s1", entYearSet);
-		req.setAttribute("s2", Pull_2);
-		req.setAttribute("s3", Pull_3);
+//        ClassNumDAO
+        ClassNumDao dao=new ClassNumDao();
+        List<String> ClassNum=dao.Filter(teacher.getSchool());
 
+//        SubjectDAO
+        SubjectDao SJdao=new SubjectDao();
+        List<Subject> Subject =SJdao.filter(teacher.getSchool());
+
+
+
+		try{
+		entYearStr = req.getParameter("s1");
+		entYear = Integer.parseInt(entYearStr);
+		classNum = req.getParameter("s2");
+		Subject_cd = req.getParameter("s3");
+
+		SubjectName =TLSdao.getSubjectName(Subject_cd);
+
+		TLsubject = TLSdao.filter(entYear, classNum, Subject_cd, school_cd);
+
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+
+
+
+//        ここでJSPで必要なものをsetAttribute
+        req.setAttribute("class_num", ClassNum);
+        req.setAttribute("subject", Subject);
+        req.setAttribute("ent_year_set", entYearSet);
+
+
+        req.setAttribute("subject_name", SubjectName);
 		req.setAttribute("subjects", TLsubject);
 
 		req.getRequestDispatcher("test_list.jsp").forward(req, resp);

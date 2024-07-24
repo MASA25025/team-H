@@ -40,7 +40,7 @@ public class TestListAction extends Action{
 
 //	        SubjectDAO
 	        SubjectDao SJdao=new SubjectDao();
-	        List<Subject> Subject =SJdao.Filter(teacher.getSchool());
+	        List<Subject> Subject =SJdao.filter(teacher.getSchool());
 	        System.out.print("エラー確認" + Subject);
 
 //	        ここでJSPで必要なものをsetAttribute

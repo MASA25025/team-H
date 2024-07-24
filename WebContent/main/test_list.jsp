@@ -9,48 +9,42 @@
 
 	<h1 id="menu-header">成績参照</h1>
 			<form action="TestListSubjectExecute.action" method="get">
-			<div id ="form_all">
-				<div class="form1">
-					<a class="form_title">科目情報</a>
 
+				<div class="form">
 					<a class="form_elm">
 					入学年度<br>
 						<select name="s1">
-						<option value="0">
-						<c:forEach var="year" items="${ent_year_set}">
-            			<%-- 現在のyearと選択されていたf1が一致していた場合selectedを追記 --%>
-            			<option value="${year}" <c:if test="${year==f1}">selected</c:if>>${year}</option>
-          				</c:forEach>
-          				</option>
+						<c:forEach var="year" items="${ ent_year_set }">
+							<option value="${year}">${ year }</option>
+						</c:forEach>
 						</select>
 					</a>
 					<a class="form_elm">
 					クラス<br>
 						<select name="s2">
-						<option>
-						<c:forEach var="s2" items="${Pull_2}">
+						<c:forEach var="classnum" items="${ class_num }">
+							<option value="${classnum}">${ classnum }</option>
 						</c:forEach>
-						</option>
 						</select>
-
 					</a>
 					<a id="subject">
 					科目<br>
 						<select name="s3">
-						<option>${Pull_3.Name }</option>
+						<c:forEach var="subject" items="${ subject }">
+							<option value="${ subject.cd }">${ subject.name }</option>
+						</c:forEach>
 						</select>
 					</a>
 					<a class="form_elm">
 					<input id="search" type="submit" value="検索">
 					</a>
 				</div>
-			</div>
-			</form>
+				</form>
 
 				<div class="ppp"><hr></div>
 
 			<form action ="TestListStudentExecute.action" method="post">
-			<div class ="form2">
+			<div class ="form">
 					<a class="form_title">学生情報</a>
 					<a id="subject">
 						学生番号<br>
@@ -70,7 +64,7 @@
     <div>氏名：${student.name}(${student.no}) </div>
     <table class="table table-hover">
       <tr>
-        <th>科目</th>
+        <th>科目名</th>
         <th>科目コード</th>
         <th>回数</th>
         <th>得点</th>
@@ -87,8 +81,32 @@
     </table>
     </c:when>
 
-  <c:otherwise>
-    <div>成績情報が存在しませんでした</div>
+  <c:when test="${subjects.size() > 0}">
+	    <div>科目：${subject_name} </div>
+    <table class="table table-hover">
+      <tr>
+        <th>入学年度</th>
+        <th>クラス</th>
+        <th>学生番号</th>
+        <th>氏名</th>
+        <th>１回</th>
+        <th>２回</th>
+      </tr>
+
+    <c:forEach var="subTestList" items="${subjects}">
+      <tr>
+        <td>${subTestList.entYear}</td>
+        <td>${subTestList.classNum}</td>
+        <td>${subTestList.studentNo}</td>
+        <td>${subTestList.studentName}</td>
+        <td>${subTestList.point01}</td>
+        <td>${subTestList.point02}</td>
+      </tr>
+    </c:forEach>
+    </table>
+  </c:when>
+ <c:otherwise>
+  <div>成績情報が存在しませんでした</div>
   </c:otherwise>
 </c:choose>
 
@@ -110,7 +128,7 @@
 				padding:10px;
 				Vertical-align: middle
 			}
-			.form1{
+			#form1{
 				display:flex;
 				padding:12px
 			}
@@ -121,7 +139,7 @@
 				padding-right: 20px;
     			padding-left: 20px;
 			}
-			.form2{
+			.form{
 				border-radius:12px;
 				display:flex;
 				padding:12px
