@@ -29,6 +29,18 @@ public class TestRegistAction extends Action{
 
 			Teacher teacher = (Teacher)session.getAttribute("user");
 
+			int ent_year = 0;
+			String class_num = "";
+			String subject = "";
+			int num = 0;
+
+
+			ent_year = Integer.parseInt(request.getParameter("entyear"));
+			class_num = request.getParameter("class_num");
+			subject = request.getParameter("subject_name");
+			num = Integer.parseInt(request.getParameter("no"));
+
+
 
 //			入学年度をInt型にし、プルダウン用にリストをつくる
 			List<Integer> entYearSet = new ArrayList<>();
@@ -41,35 +53,23 @@ public class TestRegistAction extends Action{
 	        ClassNumDao dao=new ClassNumDao();
 	        List<String> ClassNum=dao.Filter(teacher.getSchool());
 
+
 //	        SubjectDAO
 	        SubjectDao SJdao=new SubjectDao();
-	        List<Subject> Subject =SJdao.Filter(teacher.getSchool());
+	        if (subject == null){
+		        List<Subject> Subject =SJdao.Filter(teacher.getSchool());
 
 
-//	        ここでJSPで必要なものをsetAttribute
-	        request.setAttribute("class_num", ClassNum);
-	        request.setAttribute("subject", Subject);
-	        request.setAttribute("ent_year_set", entYearSet);
+	//	        ここでJSPで必要なものをsetAttribute
+		        request.setAttribute("class_num", ClassNum);
+		        request.setAttribute("subject", Subject);
+		        request.setAttribute("ent_year_set", entYearSet);
 
-	        request.getRequestDispatcher("test_regist.jsp").forward(request, response);
-//	        成績管理一覧画面へ続く
-	    }
+		        request.getRequestDispatcher("test_regist.jsp").forward(request, response);
+	//	        成績管理一覧画面へ続く
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+	        }else{
 
-				HttpSession session=request.getSession();
-
-				Teacher teacher = (Teacher)session.getAttribute("user");
-
-				int ent_year = Integer.parseInt(request.getParameter("entyear"));
-				String class_num = request.getParameter("class_num");
-				String subject = request.getParameter("subject_name");
-				int num = Integer.parseInt(request.getParameter("no"));
-
-				System.out.print(ent_year);
-
-				SubjectDao SJdao=new SubjectDao();
 		        Subject Subject =SJdao.get(subject);
 
 				TestDao Testdao=new TestDao();
@@ -82,5 +82,6 @@ public class TestRegistAction extends Action{
 				request.setAttribute("entyear", ent_year);
 
 				request.getRequestDispatcher("test_regist.jsp").forward(request, response);
+	        }
 	}
 }
