@@ -25,7 +25,6 @@ public class TestListSubjectDao extends DAO{
 
 		}catch (Exception e) {
 			System.out.print(e);
-			System.out.print("DAO側"+subject_cd);
 			// TODO: handle exception
 		}
 		return SubjectName;
@@ -55,8 +54,12 @@ public class TestListSubjectDao extends DAO{
 				listSubject.setStudentNo(rSet.getString("student_No"));
 				listSubject.setStudentName(rSet.getString("Name"));
 				listSubject.setPoint01(rSet.getString("point_No1"));
-				listSubject.setPoint02(rSet.getString("point_No2"));
-
+				String isNull = rSet.getString("point_No2");
+				if(isNull != null){
+					listSubject.setPoint02(rSet.getString("point_No2"));
+				}else{
+				listSubject.setPoint02("-");
+				}
 				testListSubject.add(listSubject);
 
 			}

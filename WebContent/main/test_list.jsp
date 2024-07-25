@@ -1,5 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <c:import url="/base.jsp">
 
 <c:param name="title">得点管理システム</c:param>
@@ -10,8 +12,8 @@
 	<h1 id="menu-header">成績参照</h1>
 			<form action="TestListSubjectExecute.action" method="get">
 
-				<div class="form">
-					<a class="form_elm">
+				<div class="form_box">
+					<a class="form_el">
 					入学年度<br>
 						<select name="s1">
 						<c:forEach var="year" items="${ ent_year_set }">
@@ -19,7 +21,7 @@
 						</c:forEach>
 						</select>
 					</a>
-					<a class="form_elm">
+					<a class="form_el">
 					クラス<br>
 						<select name="s2">
 						<c:forEach var="classnum" items="${ class_num }">
@@ -35,22 +37,22 @@
 						</c:forEach>
 						</select>
 					</a>
-					<a class="form_elm">
+					<a class="form_el">
 					<input id="search" type="submit" value="検索">
 					</a>
 				</div>
 				</form>
 
-				<div class="ppp"><hr></div>
+			<hr>
 
 			<form action ="TestListStudentExecute.action" method="post">
-			<div class ="form">
+			<div class ="form_box">
 					<a class="form_title">学生情報</a>
 					<a id="subject">
 						学生番号<br>
 						<input type="text" name="f1"size="30" placeholder="学生番号を入力してください">
 						</a>
-						<a class="form_elm">
+						<a class="form_el">
 						<input id="search" type="submit" value="検索">
 						</a>
 			</div>
@@ -100,7 +102,8 @@
         <td>${subTestList.studentNo}</td>
         <td>${subTestList.studentName}</td>
         <td>${subTestList.point01}</td>
-        <td>${subTestList.point02}</td>
+        <td>${subTestList.point02}
+        </td>
       </tr>
     </c:forEach>
     </table>
@@ -114,18 +117,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
-
-
-
-
 		<style>
 			#menu-header{
 				font-size:x-large;
 				border:none 1px #CCCCCC;
-				border-radius:12px;
+				border-radius:6px;
 				background-color:#EEEEEE;
 				height:36px;
-				padding:10px;
+				padding:16px;
 				Vertical-align: middle
 			}
 			#form1{
@@ -139,8 +138,8 @@
 				padding-right: 20px;
     			padding-left: 20px;
 			}
-			.form{
-				border-radius:12px;
+			.form_box{
+				border-radius:6px;
 				display:flex;
 				padding:12px
 			}
@@ -152,7 +151,7 @@
 			#form_all{
 				border: solid 1px #C0C0C0;
 			}
-			.form_elm{
+			.form_el{
 				font-size:large;
 				height:48px;
 				width:  136px;
@@ -169,10 +168,22 @@
 				border:none 1px #555555;
 				border-radius:6px;
 			}
+			hr{
+			    border: none;
+			    border-bottom: 1px solid #333;
+			    margin: 0;
+			}
 			p {
 				font-size:13px;
 				text-align:left;
 				color:#00bfff;
+			}
+			tr{
+				width: 100%;
+				text-align: center;
+			}
+			td{
+				text-align:flex;
 			}
 
 
@@ -181,3 +192,6 @@
 </c:param>
 
 </c:import>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
