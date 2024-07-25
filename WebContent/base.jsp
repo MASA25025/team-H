@@ -55,7 +55,6 @@
 	}
 	#content{
   		box-sizing: border-box;
-		width: 85%;
 		padding-top: 1rem;
 		padding-left: 2rem;
 		height : 90%;
