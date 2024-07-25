@@ -87,7 +87,7 @@
 			<a href="../main/TestRegist.action">成績登録</a>
 			<a href="../main/TestList.action">成績参照</a>
 		</div>
-		<div id="subject"><a href="">科目管理</a></div>
+		<div id="subject"><a href="../main/SubjectList.action">科目管理</a></div>
 	</div>
 </div>
 </body>
