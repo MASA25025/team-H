@@ -61,7 +61,6 @@
 		padding-top: 1rem;
 		padding-left: 2rem;
 		height : 90%;
-		border-left: solid 1px black;
 	}
 </style>
 
