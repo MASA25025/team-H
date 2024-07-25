@@ -25,6 +25,7 @@ public class SubjectUpdateExecuteAction extends Action {
         Subject subject = new Subject();
         subject.setCd(cd);
         subject.setName(name);
+        subject.setSchool(teacher.getSchool());
 
         // SubjectDaoを使用して学生情報を保存
         SubjectDao subjectDao = new SubjectDao();

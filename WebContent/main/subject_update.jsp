@@ -13,7 +13,7 @@
                 background-color: white;
             }
             .form-title{
-            background-color: #f9f9f9;
+            background-color: #f5f5f5;
             }
             .form-container h2 {
                 text-align: center;
@@ -61,19 +61,21 @@
 
         <div class="form-container">
             <div class="form-title">
-                <h2>科目情報削除</h2>
+                <h2>科目情報変更</h2>
             </div>
-            <form action="SubjectDeleteExecute.action" method="post">
+            <form action="SubjectUpdateExecute.action" method="post">
                 <div class="form-group">
-                    <p>「${subjects.name}(${subjects.cd})」を削除してもよろしいですか</p>
+                    <label>科目コード
+                        <input type="text" name="cd" value="${subjects.cd}" readonly="readonly">
+                    </label>
                 </div>
-
-                <input type="hidden" name="cd" value="${subjects.cd}">
-                <input type="hidden" name="name" value="${subjects.name}">
-
-
+                <div class="form-group">
+                    <label>科目名
+                        <input type="text" name="name" value="${subjects.name}" maxlength="20" required="required">
+                    </label>
+                </div>
                 <div class="form-actions">
-                    <button type="submit">削除</button>
+                    <button type="submit">変更</button>
                     <a href="../main/SubjectList.action">戻る</a>
                 </div>
             </form>

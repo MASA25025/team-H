@@ -13,8 +13,7 @@
 		登録が完了しました
 	</div>
 	<div id="link">
-		<a href="../main/StudentCreate.action" class="link">戻る</a>
-		<a href="../main/StudentList.action" class="link" style="left:96px;">学生一覧</a>
+		<a href="../main/SubjectList.action" class="link" style="left:96px;">科目一覧</a>
 	</div>
 
 	<style>

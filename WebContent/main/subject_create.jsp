@@ -59,15 +59,15 @@
             <form action="SubjectCreateExecute.action" method="post">
 
                 <label for="cd">科目コード</label>
-                <input type="text" id="cd" name="cd"  required placeholder="科目コードを入力してください">
+                <input type="text" id="cd" name="cd" maxlength="3" required placeholder="科目コードを入力してください">
 
                 <label for="name">科目名</label>
-                <input type="text" id="name" name="name" required placeholder="科目名を入力してください">
+                <input type="text" id="name" name="name" maxlength="20" required placeholder="科目名を入力してください">
 
 
 
                 <button type="submit">登録して終了</button>
             </form>
-            <a href="menu.jsp">戻る</a>
+            <a href="../main/SubjectList.action">戻る</a>
     </c:param>
 </c:import>

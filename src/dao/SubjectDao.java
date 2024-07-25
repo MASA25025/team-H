@@ -19,15 +19,19 @@ public class SubjectDao extends DAO{
 		PreparedStatement statement = null;
 
 		try{
-			statement = connection.prepareStatement("select * from subject where cd =?");
+			statement = connection.prepareStatement("select * from subject where cd =? and school_cd = ?");
 			statement.setString(1, cd);
+			statement.setString(2, school.getCd());
+
+			System.out.print("sql"+statement);
 
 			ResultSet rSet = statement.executeQuery();
 
-			SubjectDao subjectDao = new SubjectDao();
+			SchoolDao schoolDao = new SchoolDao();
 			if(rSet.next()){
 				subject.setCd(rSet.getString("cd"));
 				subject.setName(rSet.getString("name"));
+				subject.setSchool(schoolDao.get(rSet.getString("school_cd")));
 			}else{
 				subject = null;
 			}

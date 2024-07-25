@@ -7,15 +7,14 @@
 <c:param name="content">
 
 
-	<h1 id="menu-header">科目情報削除</h1>
+	<h1 id="menu-header">科目情報変更</h1>
 
 	<div id="message">
-		削除がが完了しました
+		変更が完了しました
 	</div>
 	<div id="link">
-		<a href="../main/SubjectList.action" class="link" style="left:96px;">科目一覧</a>
+		<a href="../main/SubjectList.action" class="link" style="left:;">科目一覧</a>
 	</div>
-
 	<style>
 	#menu-header{
 	font-size:x-large;
@@ -45,6 +44,9 @@
 		position:absolute;
 		bottom:0;
 		padding-right: 48px;
+	}
+	.a{
+	text-align: left;
 	}
 </style>
 
