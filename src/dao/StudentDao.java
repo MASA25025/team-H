@@ -63,6 +63,42 @@ public class StudentDao extends DAO {
 		}
 		return student;
 	}
+//重複チェックメソッド
+	public boolean isStudentNumberDuplicate(String studentNumber) throws Exception {
+        boolean isDuplicate = false;
+        Connection connection = getConnection();
+        PreparedStatement statement = null;
+
+        try {
+            String sql = "SELECT COUNT(*) FROM student WHERE no = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, studentNumber);
+            ResultSet rSet = statement.executeQuery();
+
+            if (rSet.next()) {
+                isDuplicate = rSet.getInt(1) > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException sqle) {
+                    sqle.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException sqle) {
+                    sqle.printStackTrace();
+                }
+            }
+        }
+        return isDuplicate;
+    }
+
 //	フィルター後のリストへの格納処理をするメソッド
 	public List<Student> postFilter(ResultSet rSet, School school)throws Exception {
 		List<Student> list = new ArrayList<>();
