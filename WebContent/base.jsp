@@ -40,7 +40,6 @@
 	    bottom: 0;
 		right:48px;
 		margin:5px;
-
 	}
 	#container{
 		width: 100%;
