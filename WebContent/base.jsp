@@ -51,7 +51,7 @@
 		width: 28%;
 		height :100%;
 		padding-left: 1rem;
-		border-right: solid 1px black;
+
 	}
 	#content{
   		box-sizing: border-box;
@@ -59,6 +59,7 @@
 		padding-top: 1rem;
 		padding-left: 2rem;
 		height : 90%;
+		border-left: solid 1px black;
 	}
 </style>
 
