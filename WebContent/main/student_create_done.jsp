@@ -16,6 +16,7 @@
 		<a href="../main/StudentCreate.action" class="link">戻る</a>
 		<a href="../main/StudentList.action" class="link" style="left:96px;">学生一覧</a>
 	</div>
+
 	<style>
 	#menu-header{
 	font-size:x-large;
