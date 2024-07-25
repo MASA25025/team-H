@@ -39,9 +39,9 @@
 						</c:forEach>
 						</select>
 					</a>
-					<a class="form_el">
+
 					<input id="search" type="submit" value="検索">
-					</a>
+
 				</div>
 				</form>
 
@@ -54,9 +54,9 @@
 						学生番号<br>
 						<input type="text" name="f1"size="30" placeholder="学生番号を入力してください">
 						</a>
-						<a class="form_el">
+
 						<input id="search" type="submit" value="検索">
-						</a>
+
 			</div>
 		</form>
 		</div>
@@ -173,6 +173,7 @@
 				font-size:large;
 				height:48px;
 				width:  136px;
+				align-items: center;
 			}
 			#subject{
 				height:48px;
@@ -185,6 +186,9 @@
 				color:white;
 				border:none 1px #555555;
 				border-radius:6px;
+				top: 0;
+				bottom: 0;
+				margin: auto;
 			}
 			hr{
 			    border: none;
