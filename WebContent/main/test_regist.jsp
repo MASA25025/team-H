@@ -79,6 +79,36 @@
       </tr>
     </c:forEach>
   </c:when>
+
+  <c:when test="${students.size() > 0}">
+    <div>科目 : ${Subject.name}</div>
+    <table class="table table-hover">
+      <tr>
+        <th>入学年度</th>
+        <th>クラス</th>
+        <th>学生番号</th>
+        <th>氏名</th>
+        <th>点数</th>
+
+        <th></th>
+        <th></th>
+      </tr>
+    </table>
+    <c:forEach var="students" items="${students}">
+      <tr>
+        <td>${students.entyear}</td>
+        <td>${students.classnum}</td>
+        <td>${students.no}</td>
+        <td>${students.name}</td>
+        <td><a id="point">
+							<input type="text" name="point"size="30">
+						</a></td>
+
+        <td><a href="TestRegistExecute.action">登録して終了</a></td>
+      </tr>
+    </c:forEach>
+  </c:when>
+
   <c:otherwise>
     <div>成績情報が存在しませんでした</div>
   </c:otherwise>
