@@ -50,12 +50,15 @@
 <body>
 	<div id="header">
 	<h1 style="font-size: 16px, color: #333;">得点管理システム</h1>
+	<c:if test="${!empty user.name }">
 		<div id="head_li">
 			<a style="margin-right:8px;">${ user.name }様</a>
 			<a style="margin-right:8px;" href="Logout.action">ログアウト</a>
 		</div>
+	</c:if>
 	</div>
 	<div id="container">
+		<c:if test="${!empty user.name }">
 		<div id="sidebar">
 		<nav>
 			<ul>
@@ -71,7 +74,9 @@
 			</ul>
 		</nav>
 		</div>
+		</c:if>
 		<div id="content">${ param.content }</div>
+		<div id="stu_create">${ param.stu_create }</div>
 	</div>
 </body>
 
