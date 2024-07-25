@@ -15,6 +15,15 @@
   		width: 100%;
  		height: 100%;
 	}
+	#push{
+		height: 36px;
+	}
+	footer{
+		text-align: center;
+		background-color: #EEEEEE;
+		bottom: 0;
+		width: 100%;
+	}
 	#header{
 		background-color: #D9E5FF;
     	padding-top: 12px;
@@ -85,7 +94,8 @@
 		</c:if>
 		<div id="content">${ param.content }</div>
 	</div>
+	<div id="push"></div>
 </body>
 
-<footer style="text-align: center; background-color: #EEEEEE; height: 200px; bottom: 0; width: 100%;">@2023TIC<br>大原学園</footer>
+<footer>@2023TIC<br>大原学園</footer>
 </html>
