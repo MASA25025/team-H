@@ -40,7 +40,7 @@
 	#sidebar{
   		box-sizing: border-box;
 		width: 15%;
-		height :84%;
+		height :92%;
 		padding-left: 1rem;
 		border-right: solid 1px black;
 	}
