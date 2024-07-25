@@ -140,7 +140,7 @@
 				padding:12px
 			}
 			.form_content{
-				border: solid 1px #000000;
+				border: solid 1px #E65; padding: 10px; margin: 10px 30px;
 			}
 			.ppp{
 				margin:0 auto;

@@ -43,7 +43,7 @@
 	}
 	#container{
 		width: 100%;
-		height: 600px;
+		height: 92%;
 		display: flex;
 		flex-direction: row;
 	}
@@ -59,7 +59,7 @@
 		width: 85%;
 		padding-top: 1rem;
 		padding-left: 2rem;
-		height : 84%;
+		height : 90%;
 	}
 </style>
 
