@@ -23,13 +23,13 @@
 
       </tr>
 
-    <c:forEach var="student" items="${students}">
+    <c:forEach var="subject" items="${subjects}">
       <tr>
-        <td>${subjects.cd}</td>
-        <td>${subjects.name}</td>
+        <td>${subject.cd}</td>
+        <td>${subject.name}</td>
 
-        <td><a href="SubjectUpdate.action?no=${subjects.cd}">変更</a></td>
-        <td><a href="SubjectDelete.action?no=${subjects.cd}">変更</a></td>
+        <td><a href="SubjectUpdate.action?no=${subject.cd}">変更</a></td>
+        <td><a href="SubjectDelete.action?no=${subject.cd}">変更</a></td>
 
       </tr>
     </c:forEach>
