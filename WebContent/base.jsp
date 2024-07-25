@@ -16,7 +16,7 @@
  		height: 100%;
 	}
 	#push{
-		height: 36px;
+		height: 0;
 	}
 	footer{
 		text-align: center;
@@ -58,10 +58,17 @@
 		padding-top: 1rem;
 		padding-left: 2rem;
 		height : 90%;
+		width: 78%;
 		border-left: solid 1px black;
 	}
 	#list{
 		width 100%;
+	}
+	ul{
+		list-style: none;
+	}
+	li{
+		font-size:large;
 	}
 </style>
 
