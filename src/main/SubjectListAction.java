@@ -9,8 +9,9 @@ import javax.servlet.http.HttpSession;
 import bean.Subject;
 import bean.Teacher;
 import dao.SubjectDao;
+import tool.Action;
 
-public class SubjectListAction {
+public class SubjectListAction extends Action {
 	public void execute(HttpServletRequest req, HttpServletResponse resp)throws Exception{
 		HttpSession session = req.getSession();
 		Teacher teacher = (Teacher)session.getAttribute("user");
