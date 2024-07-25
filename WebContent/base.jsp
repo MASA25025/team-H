@@ -9,6 +9,10 @@
 </head>
 
 <style>
+	body{
+		min-height: 100vh;
+  		position: relative;
+	}
 	#header{
 		background-color: #D9E5FF;
     	padding-top: 12px;
@@ -80,5 +84,5 @@
 	</div>
 </body>
 
-<footer style="text-align: center; background-color: #EEEEEE; height:8%;">@2023TIC<br>大原学園</footer>
+<footer style="text-align: center; background-color: #EEEEEE; height:8%; position: absolute; bottom: 0; ">@2023TIC<br>大原学園</footer>
 </html>
