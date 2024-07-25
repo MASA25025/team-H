@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.Student;
 import bean.Subject;
 import bean.Teacher;
 import bean.Test;
 import dao.ClassNumDao;
+import dao.StudentDao;
 import dao.SubjectDao;
 import dao.TestDao;
 import tool.Action;
@@ -26,6 +28,7 @@ public class TestRegistAction extends Action{
 			HttpSession session=request.getSession();
 			Teacher teacher = (Teacher)session.getAttribute("user");
 
+			boolean isAttend= true;
 			String ent_year="";
 			String class_num = "";
 			String subject = "";
@@ -37,6 +40,7 @@ public class TestRegistAction extends Action{
 			List<Test> test = null;
 			List<Subject> subjects = null;
 			Subject subjectss = null;
+			List<Student> students = null;
 			System.out.println("定義完了");
 
 			ent_year = request.getParameter("ent_year");
@@ -91,18 +95,25 @@ public class TestRegistAction extends Action{
 	        }else{
 
 		        subjectss =SJdao.get(subject,teacher.getSchool());
-		        System.out.print(subjectss);
-
-		        System.out.println("ent_year：" + entYear);
-				System.out.println("class_num：" + class_num);
-				System.out.println("subject：" + subject);
-				System.out.println("st_num：" + num);
 
 				TestDao Testdao=new TestDao();
 				test=Testdao.filter(entYear,class_num,subjectss,num,teacher.getSchool());
 
-				System.out.print(test);
+				if (test == null){
 
+					StudentDao sDao = new StudentDao();
+
+					if(entYear != 0 && !class_num.equals("0")){
+//						入学年度とクラス番号を指定
+						students = sDao.filter(teacher.getSchool(), entYear, class_num, isAttend);
+					}else if (entYear != 0 && class_num.equals("0")) {
+//						入学年度のみ指定
+						students = sDao.filter(teacher.getSchool(), entYear, isAttend);
+					}else if (entYear ==0 && class_num ==null || entYear ==0&& class_num.equals("0")) {
+//						指定なしの場合
+//						学生情報を全取得
+						students = sDao.filter(teacher.getSchool(), isAttend);
+				}
 	        }
 
 //	        ここでJSPで必要なものをsetAttribute
@@ -113,9 +124,11 @@ public class TestRegistAction extends Action{
 
 			request.setAttribute("Test", test);
 			request.setAttribute("Subject", subjectss);
+			request.setAttribute("students", students);
 			request.setAttribute("entyear", ent_year);
 
 			request.getRequestDispatcher("test_regist.jsp").forward(request, response);
 //	        成績管理一覧画面へ続く
+	}
 	}
 }
