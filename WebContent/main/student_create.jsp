@@ -15,6 +15,7 @@
                 max-width: 400px;
                 margin: 0 auto;
             }
+
             label {
                 display: block;
                 margin-bottom: 5px;
@@ -47,13 +48,15 @@
                 margin-top: 5px;
                 margin-bottom: 10px;
             }
-            div.left {
+            .left {
 			    text-align: left;
 			}
+			.form-title{
+            background-color: #f5f5f5;
         </style>
-
+			<div class="form-title">
             <h2>学生情報登録</h2>
-
+			</div>
             <form action="StudentCreateExecute.action" method="post">
                 <label class="form-label" for="student-f1-select">入学年度</label>
                 <select class="form-select" id="student-f1-select" name="ent_year">
