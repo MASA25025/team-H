@@ -13,7 +13,7 @@
                 background-color: white;
             }
             .form-title{
-            background-color: #f9f9f9;
+            background-color: #f5f5f5;
             }
             .form-container h2 {
                 text-align: center;
