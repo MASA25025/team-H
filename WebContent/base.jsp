@@ -9,6 +9,20 @@
 </head>
 
 <style>
+	body{
+		min-height: 100vh;
+  		position: relative;
+  		width: 100%;
+ 		height: 100%;
+	}
+	#push{
+		height: 36px;
+	}
+	footer{
+		text-align: center;
+		background-color: #EEEEEE;
+		width: 100%;
+	}
 	#header{
 		background-color: #D9E5FF;
     	padding-top: 12px;
@@ -25,30 +39,27 @@
 	    bottom: 0;
 		right:48px;
 		margin:5px;
-
 	}
 	#container{
 		width: 100%;
-		height: 600px;
+		height: 92%;
 		display: flex;
 		flex-direction: row;
 	}
 	#sidebar{
   		box-sizing: border-box;
-		width: 15%;
+		width: 28%;
+		height :100%;
 		padding-left: 1rem;
-		border-right: solid 1px black;
+
 	}
 	#content{
   		box-sizing: border-box;
 		width: 85%;
 		padding-top: 1rem;
 		padding-left: 2rem;
-	}
-	#stu_create{
-  		box-sizing: border-box;
-		padding-top: 1rem;
-		padding-left: 2rem;
+		height : 90%;
+		border-left: solid 1px black;
 	}
 </style>
 
@@ -81,9 +92,9 @@
 		</div>
 		</c:if>
 		<div id="content">${ param.content }</div>
-		<div id="stu_create">${ param.stu_create }</div>
 	</div>
+	<div id="push"></div>
 </body>
 
-<footer style="text-align: center; background-color: #EEEEEE";>@2023TIC<br>大原学園</footer>
+<footer>@2023TIC<br>大原学園</footer>
 </html>

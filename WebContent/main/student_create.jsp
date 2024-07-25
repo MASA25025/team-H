@@ -23,7 +23,7 @@
             input, select, button {
                 width: 100%;
                 padding: 10px;
-                margin-bottom: 10px;
+                margin-bottom: 0px;
             }
             button {
                 background-color: #333;
@@ -44,12 +44,16 @@
             .error {
                 color: red;
                 font-size: 0.9em;
+                margin-top: 5px;
                 margin-bottom: 10px;
             }
+            div.left {
+			    text-align: left;
+			}
         </style>
 
-        <body>
             <h2>学生情報登録</h2>
+
             <form action="StudentCreateExecute.action" method="post">
                 <label class="form-label" for="student-f1-select">入学年度</label>
                 <select class="form-select" id="student-f1-select" name="ent_year">
@@ -58,15 +62,27 @@
                         <option value="${year}">${year}</option>
                     </c:forEach>
                 </select>
-                <div id="entryYearError" class="error"></div>
+                <div class="error">
+                    <c:if test="${not empty entYearError}">
+                        <p>${entYearError}</p>
+                    </c:if>
+                </div>
 
                 <label for="student_number">学生番号</label>
-                <input type="text" id="student_number" name="no" required placeholder="学生番号を入力してください">
-                <div id="studentNumberError" class="error"></div>
+                <input type="text" id="student_number" name="no" value="${param.no}">
+                <div class="error">
+                    <c:if test="${not empty studentNumberError}">
+                        <p>${studentNumberError}</p>
+                    </c:if>
+                </div>
 
                 <label for="name">氏名</label>
-                <input type="text" id="name" name="name" required placeholder="氏名を入力してください">
-                <div id="nameError" class="error"></div>
+                <input type="text" id="name" name="name" value="${param.name}">
+                <div class="error">
+                    <c:if test="${not empty nameError}">
+                        <p>${nameError}</p>
+                    </c:if>
+                </div>
 
                 <label class="form-label" for="student-f2-select">クラス</label>
                 <select class="form-select" id="student-f2-select" name="class_num">
@@ -75,22 +91,14 @@
                         <option value="${num}">${num}</option>
                     </c:forEach>
                 </select>
-                <div id="classNumberError" class="error"></div>
+                <div class="error">
+                    <c:if test="${not empty classNumberError}">
+                        <p>${classNumberError}</p>
+                    </c:if>
+                </div>
 
                 <button type="submit">登録して終了</button>
             </form>
             <a href="menu.jsp">戻る</a>
-
-            <!-- エラーメッセージを表示 -->
-            <c:if test="${not empty errors}">
-                <div class="error">
-                    <ul>
-                        <c:forEach var="error" items="${errors}">
-                            <li>${error}</li>
-                        </c:forEach>
-                    </ul>
-                </div>
-            </c:if>
-        </body>
     </c:param>
 </c:import>

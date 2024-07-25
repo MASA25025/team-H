@@ -8,8 +8,10 @@
 
 <c:param name="content">
 
-
-	<h1 id="menu-header">成績参照</h1>
+	<div id="menu-header">
+	<h1 id="menu_text">成績参照</h1>
+	</div>
+		<div id="form_content">
 			<form action="TestListSubjectExecute.action" method="get">
 
 				<div class="form_box">
@@ -57,6 +59,7 @@
 						</a>
 			</div>
 			</form>
+		</div>
 		<p>科目情報を選択または学生情報を入力して
 			検索ボタンをクリックしてください</p>
 
@@ -119,17 +122,25 @@
         crossorigin="anonymous"></script>
 		<style>
 			#menu-header{
-				font-size:x-large;
+
 				border:none 1px #CCCCCC;
 				border-radius:6px;
 				background-color:#EEEEEE;
-				height:36px;
-				padding:16px;
+				height:54px;
+
 				Vertical-align: middle
+
+			}
+			#menu_text{
+				font-size:x-large;
+				padding:16px;
 			}
 			#form1{
 				display:flex;
 				padding:12px
+			}
+			.form_content{
+				border: solid 1px #E65; padding: 10px; margin: 10px 30px;
 			}
 			.ppp{
 				margin:0 auto;
