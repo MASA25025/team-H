@@ -95,7 +95,7 @@
 					<li><a href="../main/TestList.action">成績参照</a></li>
 				</ul>
 				</li>
-				<li><a href="">科目管理</a></li>
+				<li><a href="../main/SubjectList.action">科目管理</a></li>
 			</ul>
 		</div>
 		</div>
