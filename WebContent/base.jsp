@@ -21,7 +21,7 @@
 	footer{
 		text-align: center;
 		background-color: #EEEEEE;
-		bottom: 0;
+
 		height :8px;
 		width: 100%;
 	}
