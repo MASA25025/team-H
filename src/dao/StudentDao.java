@@ -63,6 +63,7 @@ public class StudentDao extends DAO {
 		}
 		return student;
 	}
+
 //重複チェックメソッド
 	public boolean isStudentNumberDuplicate(String studentNumber) throws Exception {
         boolean isDuplicate = false;

@@ -45,6 +45,11 @@
 		padding-top: 1rem;
 		padding-left: 2rem;
 	}
+	#stu_create{
+  		box-sizing: border-box;
+		padding-top: 1rem;
+		padding-left: 2rem;
+	}
 </style>
 
 <body>
