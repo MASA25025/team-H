@@ -12,21 +12,21 @@ import tool.Action;
 
 public class SubjectCreateAction extends Action{
 	public void execute(
-	        HttpServletRequest request, HttpServletResponse response
+	        HttpServletRequest req, HttpServletResponse resp
 	    ) throws Exception {
+		HttpSession session = req.getSession();
+		Teacher teacher = (Teacher)session.getAttribute("user");
 
-			HttpSession session=request.getSession();
-			Teacher teacher = (Teacher)session.getAttribute("user");
+		ClassNumDao classNumDao = new ClassNumDao();
 
-//	        ClassNumDAO
-	        ClassNumDao dao=new ClassNumDao();
-	        List<String> ClassNum=dao.Filter(teacher.getSchool());
+		List<String> list = classNumDao.Filter(teacher.getSchool());
 
-//	        ここでJSPで必要なものをsetAttribute
-	        request.setAttribute("class_num", ClassNum);
+		System.out.print(teacher);
 
-	        request.getRequestDispatcher("subject_regist.jsp").forward(request, response);
-//	        科目管理一覧画面へ続く
+		req.setAttribute("class_num_set", list);
+
+
+	     req.getRequestDispatcher("subject_create.jsp").forward(req, resp);
 	}
 
 }

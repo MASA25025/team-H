@@ -20,6 +20,10 @@ public class SubjectCreateExecuteAction extends Action {
         String cd = req.getParameter("cd");
         String name = req.getParameter("name");
 
+        System.out.print(cd);
+        System.out.print(name);
+        System.out.print(teacher);
+
         // Subjectインスタンスの作成
         Subject subject = new Subject();
         subject.setCd(cd);

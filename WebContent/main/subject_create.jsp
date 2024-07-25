@@ -1,3 +1,5 @@
+
+
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="/base.jsp">
@@ -23,7 +25,7 @@
             input, select, button {
                 width: 100%;
                 padding: 10px;
-                margin-bottom: 10px;
+                margin-bottom: 0px;
             }
             button {
                 background-color: #333;
@@ -44,16 +46,20 @@
             .error {
                 color: red;
                 font-size: 0.9em;
+                margin-top: 5px;
                 margin-bottom: 10px;
             }
+            div.left {
+			    text-align: left;
+			}
         </style>
 
-        <body>
             <h2>学生情報登録</h2>
-            <form action="StudentCreateExecute.action" method="post">
+
+            <form action="SubjectCreateExecute.action" method="post">
 
                 <label for="cd">科目コード</label>
-                <input type="text" id="cd" name="cd" required placeholder="科目コードを入力してください">
+                <input type="text" id="cd" name="cd"  required placeholder="科目コードを入力してください">
 
                 <label for="name">科目名</label>
                 <input type="text" id="name" name="name" required placeholder="科目名を入力してください">
@@ -63,17 +69,5 @@
                 <button type="submit">登録して終了</button>
             </form>
             <a href="menu.jsp">戻る</a>
-
-            <!-- エラーメッセージを表示 -->
-            <c:if test="${not empty errors}">
-                <div class="error">
-                    <ul>
-                        <c:forEach var="error" items="${errors}">
-                            <li>${error}</li>
-                        </c:forEach>
-                    </ul>
-                </div>
-            </c:if>
-        </body>
     </c:param>
 </c:import>

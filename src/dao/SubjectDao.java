@@ -61,7 +61,7 @@ public class SubjectDao extends DAO{
 			Connection con=getConnection();
 
 			PreparedStatement st=con.prepareStatement(
-				"select * from SUBJECT where SCHOOL_CD like ?");
+				"select * from SUBJECT where SCHOOL_CD = ?");
 			st.setString(1,school.getCd());
 			ResultSet rs=st.executeQuery();
 
@@ -69,6 +69,7 @@ public class SubjectDao extends DAO{
 				Subject p=new Subject();
 				p.setCd(rs.getString("cd"));
 				p.setName(rs.getString("name"));
+				p.setSchool(school);
 				list.add(p);
 			}
 
@@ -90,18 +91,18 @@ public class SubjectDao extends DAO{
 //					学生が存在しなかった場合
 //					プリペアードステートメントにINSERT文をセット
 					statement = connection.prepareStatement(
-							"insert into student(cd, name, school_cd) values(?, ?, ?)");
+							"insert into subject(cd, name, school_cd) values(?, ?, ?)");
 //					プリペアードステートメントに値をバインド
 					statement.setString(1, subject.getCd());
 					statement.setString(2, subject.getName());
-					statement.setString(6, subject.getSchool().getCd());
+					statement.setString(3, subject.getSchool().getCd());
 				}else{
 //					学生が存在した場合
 //					プリペアードステートメントにUPDATE文をセット
 					statement = connection.prepareStatement(
 							"update subject set name =? where cd=?");
 					statement.setString(1, subject.getName());
-					statement.setString(5, subject.getCd());
+					statement.setString(2, subject.getCd());
 				}
 
 //				プリペアードステートメントの実行
