@@ -44,11 +44,7 @@
 		width: 85%;
 		padding-top: 1rem;
 		padding-left: 2rem;
-	}
-	#stu_create{
-  		box-sizing: border-box;
-		padding-top: 1rem;
-		padding-left: 2rem;
+		height : 84%;
 	}
 </style>
 
@@ -81,9 +77,8 @@
 		</div>
 		</c:if>
 		<div id="content">${ param.content }</div>
-		<div id="stu_create">${ param.stu_create }</div>
 	</div>
 </body>
 
-<footer style="text-align: center; background-color: #EEEEEE; height:10%;">@2023TIC<br>大原学園</footer>
+<footer style="text-align: center; background-color: #EEEEEE; height:8%;">@2023TIC<br>大原学園</footer>
 </html>

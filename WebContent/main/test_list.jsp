@@ -9,7 +9,7 @@
 <c:param name="content">
 
 	<div id="menu-header">
-	<h1 id="">成績参照</h1>
+	<h1 id="menu_text">成績参照</h1>
 	</div>
 			<form action="TestListSubjectExecute.action" method="get">
 
@@ -120,14 +120,18 @@
         crossorigin="anonymous"></script>
 		<style>
 			#menu-header{
-				font-size:x-large;
+
 				border:none 1px #CCCCCC;
 				border-radius:6px;
 				background-color:#EEEEEE;
 				height:36px;
-				padding:16px;
+
 				Vertical-align: middle
 
+			}
+			#menu_text{
+				font-size:x-large;
+				padding:16px;
 			}
 			#form1{
 				display:flex;
