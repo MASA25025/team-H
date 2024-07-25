@@ -61,6 +61,9 @@
 		height : 90%;
 		border-left: solid 1px black;
 	}
+	#list{
+		width 100%;
+	}
 </style>
 
 <body>
@@ -76,19 +79,19 @@
 	<div id="container">
 		<c:if test="${!empty user.name }">
 		<div id="sidebar">
-		<nav>
+		<div id="list">
 			<ul>
 				<li><a href="../main/menu.jsp">メニュー</a></li>
 				<li><a href="../main/StudentList.action">学生管理</a></li>
 				<li>成績管理
 				<ul>
-					<li><a href="">成績登録</a></li>
-					<li><a href="">成績参照</a></li>
+					<li><a href="../main/TestRegist.action">成績登録</a></li>
+					<li><a href="../main/TestList.action">成績参照</a></li>
 				</ul>
 				</li>
 				<li><a href="">科目管理</a></li>
 			</ul>
-		</nav>
+		</div>
 		</div>
 		</c:if>
 		<div id="content">${ param.content }</div>
