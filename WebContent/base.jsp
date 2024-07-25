@@ -22,6 +22,7 @@
 		text-align: center;
 		background-color: #EEEEEE;
 		bottom: 0;
+		height :8px;
 		width: 100%;
 	}
 	#header{
@@ -60,7 +61,7 @@
 		padding-top: 1rem;
 		padding-left: 2rem;
 		height : 90%;
-
+		border-left: solid 1px black;
 	}
 </style>
 
