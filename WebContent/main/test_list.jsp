@@ -124,7 +124,7 @@
 				border:none 1px #CCCCCC;
 				border-radius:6px;
 				background-color:#EEEEEE;
-				height:36px;
+				height:54px;
 
 				Vertical-align: middle
 
