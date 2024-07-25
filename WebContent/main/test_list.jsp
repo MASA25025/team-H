@@ -8,8 +8,9 @@
 
 <c:param name="content">
 
-
-	<h1 id="menu-header">成績参照</h1>
+	<div id="menu-header">
+	<h1 id="">成績参照</h1>
+	</div>
 			<form action="TestListSubjectExecute.action" method="get">
 
 				<div class="form_box">
@@ -126,6 +127,7 @@
 				height:36px;
 				padding:16px;
 				Vertical-align: middle
+
 			}
 			#form1{
 				display:flex;
