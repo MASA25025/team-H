@@ -49,8 +49,8 @@
 	}
 	#sidebar{
   		box-sizing: border-box;
-		width: 15%;
-		height :92%;
+		width: 28%;
+		height :100%;
 		padding-left: 1rem;
 		border-right: solid 1px black;
 	}
