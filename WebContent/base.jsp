@@ -76,6 +76,7 @@
 		</div>
 		</c:if>
 		<div id="content">${ param.content }</div>
+		<div id="stu_create"${ param.stu_create }</div>
 	</div>
 </body>
 
