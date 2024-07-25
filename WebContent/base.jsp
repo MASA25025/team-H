@@ -22,6 +22,7 @@
 		text-align: center;
 		background-color: #EEEEEE;
 		width: 100%;
+		bottom:0;
 	}
 	#header{
 		background-color: #D9E5FF;
