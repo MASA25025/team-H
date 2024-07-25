@@ -11,6 +11,7 @@
 	<div id="menu-header">
 	<h1 id="menu_text">成績参照</h1>
 	</div>
+		<div id="form_content">
 			<form action="TestListSubjectExecute.action" method="get">
 
 				<div class="form_box">
@@ -58,6 +59,7 @@
 						</a>
 			</div>
 			</form>
+		</div>
 		<p>科目情報を選択または学生情報を入力して
 			検索ボタンをクリックしてください</p>
 
@@ -136,6 +138,9 @@
 			#form1{
 				display:flex;
 				padding:12px
+			}
+			.form_content{
+				border: solid 1px black;
 			}
 			.ppp{
 				margin:0 auto;

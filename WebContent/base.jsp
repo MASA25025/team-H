@@ -12,6 +12,8 @@
 	body{
 		min-height: 100vh;
   		position: relative;
+  		width: 100%;
+ 		height: 100%;
 	}
 	#header{
 		background-color: #D9E5FF;
