@@ -40,6 +40,6 @@ public class SubjectCreateExecuteAction extends Action {
         }
 
         // JSPページにフォワード
-        req.getRequestDispatcher("student_create_done.jsp").forward(req, resp);
+        req.getRequestDispatcher("subject_create_done.jsp").forward(req, resp);
     }
 }
